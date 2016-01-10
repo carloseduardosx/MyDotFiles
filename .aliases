@@ -1,0 +1,67 @@
+#Android
+
+alias android_disable_wifi="adb shell svc wifi disable"
+
+alias android_enable_wifi="adb shell svc wifi enable"
+
+alias android_disable_wifi="adb shell svc wifi disable"
+
+alias android_enable_wifi="adb shell svc wifi enable"
+
+alias android_backup="adb backup -f ~/Documents/adb_backup/GMBackup.ab -n oapk com.greenmile.android"
+
+alias android_decompress_backup='dd if=GMBackup.ab bs=1 skip=24 | python -c "import zlib, sys;sys.stdout.write(zlib.decompress(sys.stdin.read()))" | tar -xvf -'
+
+alias android_list_all_packages="adb -d shell 'pm list packages -f' | sed -e 's/.*=//' | sort"
+
+
+#Greenmile
+
+alias gm_push_db_for_survey_tests="adb shell rm /data/data/com.greenmile.android/databases/greenmile.db-journal && adb push /android_appium_apks/master/greenmile.db /data/data/com.greenmile.android/databases/greenmile.db && adb push /android_appium_apks/master/globalPrefs.xml /data/data/com.greenmile.android/shared_prefs/globalPrefs.xml && adb shell am start -n com.greenmile.android/com.greenmile.android.activity.list.ListStopsActivity"
+
+alias gm_reinstall_app="adb uninstall com.greenmile.android && adb install /android_appium_apks/master/greenmile-android-release.apk && adb shell am start -n com.greenmile.android/com.greenmile.android.activity.ControllerActivity"
+
+alias gm_db_pull="adb shell \"run-as com.greenmile.android chmod 666 /data/data/com.greenmile.android/databases/greenmile.db\" && adb pull /data/data/com.greenmile.android/databases/greenmile.db /Users/carloseduardo/Documents/banco_devices"
+
+alias gm_copy_from_databases_to_android_appium_apks="cp -R /Users/carloseduardo/banco_devices/greenmile.db /android_appium_apks/master/greenmile.db"
+
+alias gm_start_list_stops_activity="adb shell am start -n com.greenmile.android/com.greenmile.android.activity.list.ListStopsActivity"
+
+alias gm_driver_build="gradle clean daoConfig build"
+
+alias gm_uninstall_driver="adb uninstall com.greenmile.android"
+
+alias gm_uninstall_updater="adb uninstall com.greenmile.updater"
+
+alias gm_get_data_device="adb pull /data/data/com.greenmile.android/databases/greenmile.db ~/Documents/banco_devices/"
+
+alias gm_push_data_device="adb push greenmile.db /data/data/com.greenmile.android/databases/greenmile.db"
+
+alias gm_start_list_stop="adb shell am start -n com.greenmile.android/com.greenmile.android.activity.list.ListStopsActivity"
+
+alias gm_start_controller_activity="adb shell am start -n com.greenmile.android/com.greenmile.android.activity.ControllerActivity"
+
+alias gm_driver_build="gradle clean daoConfig build"
+
+alias gm_copy_db_to_sdcard="adb shell am broadcast -a com.greenmile.android.COPY_DATABASE"
+
+
+# Virtual Box
+
+alias list_vms="VBoxManage list vms"
+
+alias git_show_unchaged_files="git ls-files -v|grep '^h'"
+
+
+# Clojure
+
+alias lein="/Users/carloseduardo/Documents/scripts/lein.sh"
+
+
+# Git
+
+alias g_log='git log --pretty=format:"[%an %ad] %h - %s"'
+
+alias g_unmerge='git reset --merge ORIG_HEAD'
+
+alias g_show_unchaged_files="git ls-files -v|grep '^h'"
