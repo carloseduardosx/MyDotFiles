@@ -50,8 +50,6 @@ alias gm_copy_db_to_sdcard="adb shell am broadcast -a com.greenmile.android.COPY
 
 alias list_vms="VBoxManage list vms"
 
-alias git_show_unchaged_files="git ls-files -v|grep '^h'"
-
 
 # Clojure
 

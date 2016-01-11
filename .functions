@@ -39,43 +39,45 @@ gch() {
 }
 
 gm_uninstall_all() {
-  echo 'Available Devices'
+  info 'Available Devices'
   adb devices
 
-  echo 'Uninstalling GM Driver Integration Example'
+  info 'Uninstalling GM Driver Integration Example'
   adb uninstall integration.greenmile.com.gm_driver_integration
 
-  echo 'Uninstalling GM Driver JS'
+  info 'Uninstalling GM Driver JS'
   adb uninstall com.greenmile.driver
 
-  echo 'Uninstalling GM Manager'
+  info 'Uninstalling GM Manager'
   adb uninstall com.greenmile.manager
 
-  echo 'Uninstalling GM Updater'
+  info 'Uninstalling GM Updater'
   adb uninstall com.greenmile.updater
 
-  echo 'Uninstalling GM Driver'
+  info 'Uninstalling GM Driver'
   adb uninstall com.greenmile.android
 
-  echo 'Deleting GreenMile folder from sdcard'
+  info 'Deleting GreenMile folder from sdcard'
   adb shell rm -rf /sdcard/Greenmile/
 
-  echo 'Deleting GreenMile APK from data folder'
-  rm -rf /data/app/com.greenmile.android-1.apk
+  info 'Deleting GreenMile APK from data folder'
+  rm /data/app/com.greenmile.android-1.apk
 
-  echo 'Deleting GreenMile from data folder'
-  rm -rf /data/data/com.greenmile.android
+  info 'Deleting GreenMile from data folder'
+  rm /data/data/com.greenmile.android
 
-  echo 'Searching for greenmile on device'
+  info 'Searching for greenmile on device'
   adb shell lsof | grep greenmile
 
-  echo 'Done ;)'
-  echo
-  echo
+  info 'Done ;)'
 }
 
 addGoAlias() {
   alias_name=$1
-  echo "alias go$alias_name=\"cd `pwd`\"" >> $HOME/.goaliases
+  echo "alias go$alias_name=\"cd `pwd`\"" >> $HOME/MyDotFiles/.goaliases
   source $HOME/.zshrc
+}
+
+cp_ssh_key() {
+  cat $HOME/.ssh/id_rsa.pub | pbcopy
 }
