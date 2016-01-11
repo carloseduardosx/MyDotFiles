@@ -30,11 +30,11 @@ quit_screen_session() {
   screen -S "$session_name" -X quit
 }
 
-gcf() {
+git_cf() {
       git checkout feature/$1
 }
 
-gch() {
+git_ch() {
       git checkout hotfix/$1
 }
 
@@ -80,4 +80,8 @@ addGoAlias() {
 
 cp_ssh_key() {
   cat $HOME/.ssh/id_rsa.pub | pbcopy
+}
+
+find_function() {
+  type -a $1
 }
