@@ -1,1 +1,4 @@
+#!/bin/bash
+
 alias godriver="cd /Users/carloseduardo/Documents/Projetos/gm-driver-android/driver"
+alias godot_files="cd /Users/carloseduardo/MyDotFiles"

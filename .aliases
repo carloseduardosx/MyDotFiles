@@ -1,4 +1,8 @@
+#!/bin/bash
+
 #Android
+
+alias android_clean_log="adb logcat -c"
 
 alias android_disable_wifi="adb shell svc wifi disable"
 
@@ -16,6 +20,8 @@ alias android_list_all_packages="adb -d shell 'pm list packages -f' | sed -e 's/
 
 
 #Greenmile
+
+alias gmpidcat="pidcat com.greenmile.android"
 
 alias gm_push_db_for_survey_tests="adb shell rm /data/data/com.greenmile.android/databases/greenmile.db-journal && adb push /android_appium_apks/master/greenmile.db /data/data/com.greenmile.android/databases/greenmile.db && adb push /android_appium_apks/master/globalPrefs.xml /data/data/com.greenmile.android/shared_prefs/globalPrefs.xml && adb shell am start -n com.greenmile.android/com.greenmile.android.activity.list.ListStopsActivity"
 
@@ -63,3 +69,8 @@ alias g_log='git log --pretty=format:"[%an %ad] %h - %s"'
 alias g_unmerge='git reset --merge ORIG_HEAD'
 
 alias g_show_unchaged_files="git ls-files -v|grep '^h'"
+
+
+# Source
+
+alias reload="source $HOME/.zshrc"
