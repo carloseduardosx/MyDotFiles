@@ -1,0 +1,28 @@
+#!/bin/bash
+
+g_files_modified_by() {
+  local name="$1"
+  git log --pretty="%H" --author=$name | while read commit_hash; do git show --oneline --name-only $commit_hash | tail -n+2; done | sort | uniq
+}
+
+g_actual_branch() {
+   git branch | sed -n '/\* /s///p'
+}
+
+g_pull() {
+  local branch=$( git branch | sed -n 's/^\* \(.*\)/\1/p' )
+  git pull origin $branch
+}
+
+g_push() {
+  local branch=$( git branch | sed -n 's/^\* \(.*\)/\1/p' )
+  git push origin $branch
+}
+
+git_cf() {
+      git checkout feature/$1
+}
+
+git_ch() {
+      git checkout hotfix/$1
+}

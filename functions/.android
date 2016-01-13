@@ -1,0 +1,6 @@
+#!/bin/bash
+
+android_app_backup() {
+  local package="$1"
+  adb backup -f ~/Documents/adb_backup/GMBackup.ab -n oapk $package
+}

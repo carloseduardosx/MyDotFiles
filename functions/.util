@@ -1,0 +1,16 @@
+#!/bin/bash
+
+addGoAlias() {
+  alias_name=$1
+  echo "alias go$alias_name=\"cd `pwd`\"" >> $HOME/MyDotFiles/.goaliases
+  source $HOME/.zshrc
+}
+
+cp_ssh_key() {
+  local file="$1"
+  cat `pwd`/file | pbcopy
+}
+
+find_function() {
+  type -a $1
+}

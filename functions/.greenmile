@@ -1,0 +1,40 @@
+#!/bin/bash
+
+gm_start_activitiy() {
+  local activity="$1"
+  adb shell am start -n com.greenmile.android/com.greenmile.android.activity.$activity &>-
+}
+
+gm_uninstall_all() {
+  info 'Available Devices'
+  adb devices
+
+  info 'Uninstalling GM Driver Integration Example'
+  adb uninstall integration.greenmile.com.gm_driver_integration
+
+  info 'Uninstalling GM Driver JS'
+  adb uninstall com.greenmile.driver
+
+  info 'Uninstalling GM Manager'
+  adb uninstall com.greenmile.manager
+
+  info 'Uninstalling GM Updater'
+  adb uninstall com.greenmile.updater
+
+  info 'Uninstalling GM Driver'
+  adb uninstall com.greenmile.android
+
+  info 'Deleting GreenMile folder from sdcard'
+  adb shell rm -rf /sdcard/Greenmile/
+
+  info 'Deleting GreenMile APK from data folder'
+  rm /data/app/com.greenmile.android-1.apk
+
+  info 'Deleting GreenMile from data folder'
+  rm /data/data/com.greenmile.android
+
+  info 'Searching for greenmile on device'
+  adb shell lsof | grep greenmile
+
+  info 'Done ;)'
+}
