@@ -35,3 +35,81 @@ gc() {
 
   git commit -m "$message"
 }
+
+gh_branches() {
+
+  local user
+  local project
+
+  info "Type the user:"
+  read user
+
+  info "Type the project: "
+  read project
+
+  open https://github.com/$user/$project/branches
+}
+
+gh_branches_compare() {
+
+  local user
+  local project
+  local branch
+
+  info "Type the user:"
+  read user
+
+  info "Type the project"
+  read project
+
+  info "Type the branch"
+  read branch
+
+
+  open https://github.com/$user/$project/compare/$branch
+}
+
+gh_branches_compare_range() {
+
+  local user
+  local project
+  local first_branch
+  local second_branch
+
+  info "Type the user"
+  read project
+
+  info "Type the project"
+  read project
+
+  info "Type the first branch:"
+  read first_branch
+
+  info "Type the second branch:"
+  read second_branch
+
+
+  open https://github.com/greenmilellc-org/$project/compare/$first_branch...$second_branch
+}
+
+gh_commits() {
+
+  local user
+  local project
+  local branch
+  local author
+
+  info 'Type the user:'
+  read user
+
+  info 'Type the project:'
+  read project
+
+  info 'Type the branch:'
+  read branch
+
+  info 'Type the author:'
+  read author
+
+  open https://github.com/$user/$project/commits/$branch\?author\=$author
+}

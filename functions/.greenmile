@@ -36,19 +36,62 @@ gm_run_query_requests() {
   gm_run_query_device "SELECT * FROM request;"
 }
 
+gm_branches() {
+  local project
+
+  info "Type the project:"
+  read project
+
+  open https://github.com/greenmilellc-org/$project/branches
+}
+
+gm_branches_compare() {
+
+  local project
+  local branch
+
+  info "Type the project:"
+  read project
+
+  info "Type the branch:"
+  read branch
+
+
+  open https://github.com/greenmilellc-org/$project/compare/$branch
+}
+
+gm_branches_compare_range() {
+
+  local project
+  local first_branch
+  local second_branch
+
+  info "Type the project:"
+  read project
+
+  info "Type the first branch:"
+  read first_branch
+
+  info "Type the second branch:"
+  read second_branch
+
+
+  open https://github.com/greenmilellc-org/$project/compare/$first_branch...$second_branch
+}
+
 gm_commits() {
 
   local project
   local branch
   local author
 
-  echo -n 'What project do you want see: '
+  info 'Type the project:'
   read project
 
-  echo -n 'What branch do you want see: '
+  info 'Type the branch:'
   read branch
 
-  echo -n 'What author do you want search: '
+  info 'Type the author:'
   read author
 
   open https://github.com/greenmilellc-org/$project/commits/$branch\?author\=$author
