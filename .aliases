@@ -23,17 +23,24 @@ alias android_list_all_packages="adb -d shell 'pm list packages -f' | sed -e 's/
 
 alias gm_pidcat="pidcat com.greenmile.android"
 
-alias gm_push_db_for_survey_tests="adb shell rm /data/data/com.greenmile.android/databases/greenmile.db-journal && adb push /android_appium_apks/master/greenmile.db /data/data/com.greenmile.android/databases/greenmile.db && adb push /android_appium_apks/master/globalPrefs.xml /data/data/com.greenmile.android/shared_prefs/globalPrefs.xml && adb shell am start -n com.greenmile.android/com.greenmile.android.activity.list.ListStopsActivity"
+alias gm_push_db_for_survey_tests="adb shell rm /data/data/com.greenmile.android/databases/greenmile.db-journal && adb push /android_appium_apks/master/greenmile.db /data/data/com.greenmile.android/databases/greenmile.db;
+                                   adb push /android_appium_apks/master/globalPrefs.xml /data/data/com.greenmile.android/shared_prefs/globalPrefs.xml && adb shell am start -n com.greenmile.android/com.greenmile.android.activity.list.ListStopsActivity"
 
-alias gm_reinstall_app="adb uninstall com.greenmile.android && adb install /android_appium_apks/master/greenmile-android-release.apk && adb shell am start -n com.greenmile.android/com.greenmile.android.activity.ControllerActivity"
+alias gm_reinstall_app="adb uninstall com.greenmile.android;
+                        adb install /android_appium_apks/master/greenmile-android-release.apk && adb shell am start -n com.greenmile.android/com.greenmile.android.activity.ControllerActivity"
 
-alias gm_db_pull="adb shell \"run-as com.greenmile.android chmod 666 /data/data/com.greenmile.android/databases/greenmile.db\" && adb pull /data/data/com.greenmile.android/databases/greenmile.db /Users/carloseduardo/Documents/banco_devices"
+alias gm_db_pull="adb shell \"run-as com.greenmile.android; chmod 666 /data/data/com.greenmile.android/databases/greenmile.db\";
+                  adb pull /data/data/com.greenmile.android/databases/greenmile.db /Users/carloseduardo/Documents/banco_devices"
 
 alias gm_copy_from_databases_to_android_appium_apks="cp -R /Users/carloseduardo/banco_devices/greenmile.db /android_appium_apks/master/greenmile.db"
 
 alias gm_start_list_stops_activity="adb shell am start -n com.greenmile.android/com.greenmile.android.activity.list.ListStopsActivity"
 
-alias gm_driver_build="gradle clean daoConfig build"
+alias gm_driver_build="./gradlew clean daoConfig build --configure-on-demand --parallel --max-workers 3 --daemon --profile"
+
+alias gm_copy_debug_apk_to_appium_folder="cp $HOME/Projects/gm-driver-android/driver/greenmile-android/build/outputs/apk/greenmile-android-debug-unaligned-*.apk /android_appium_apks/master/greenmile-android-release.apk"
+
+alias gm_install_debug_apk="adb install $HOME/Projects/gm-driver-android/driver/greenmile-android/build/outputs/apk/greenmile-android-debug-unaligned-*.apk"
 
 alias gm_uninstall_driver="adb uninstall com.greenmile.android"
 
@@ -47,9 +54,21 @@ alias gm_start_list_stop="adb shell am start -n com.greenmile.android/com.greenm
 
 alias gm_start_controller_activity="adb shell am start -n com.greenmile.android/com.greenmile.android.activity.ControllerActivity"
 
-alias gm_driver_build="gradle clean daoConfig build"
-
 alias gm_copy_db_to_sdcard="adb shell am broadcast -a com.greenmile.android.COPY_DATABASE"
+
+alias gm_fuck="gm_driver_build;
+               gm_uninstall_all;
+               gm_install_debug_apk;
+               gm_start_controller_activity;"
+
+
+# Renewer
+
+alias rb_get_database="adb pull /data/data/com.carloseduardo.renewer.books/databases/renewer.db $HOME/databases/renewer.db"
+
+alias rb_pidcat="pidcat com.carloseduardo.renewer.books"
+
+alias rb_uninstall="adb uninstall com.carloseduardo.renewer.books"
 
 
 # Virtual Box
@@ -59,24 +78,23 @@ alias list_vms="VBoxManage list vms"
 
 # Clojure
 
-alias lein="/Users/carloseduardo/Documents/scripts/lein.sh"
+alias lein="/Users/carloseduardo/MyDotFiles/scripts/lein.sh"
 
 
 # Git
 
-alias g_log='git log --pretty=format:"[%an %ad] %h - %s"'
+alias gl='git log --all --graph --pretty=format:"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
 
 alias g_unmerge='git reset --merge ORIG_HEAD'
 
 alias g_show_unchaged_files="git ls-files -v|grep '^h'"
 
+# Maven
+alias mvn_install="mvn clean install -DskipTests=true"
+alias mvn_package="mvn clean package -DskipTests=true"
+alias mvn_install_sync="mvn clean install -U -P remote"
+
 
 # Source
 
 alias reload="source $HOME/.zshrc"
-
-
-# Apps
-
-alias rb_pidcat="pidcat com.carloseduardo.renewer.books"
-alias rb_uninstall="adb uninstall com.carloseduardo.renewer.books"

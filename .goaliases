@@ -1,4 +1,11 @@
 #!/bin/bash
 
-alias godriver="cd /Users/carloseduardo/Documents/Projetos/gm-driver-android/driver"
+alias godriver="cd /Users/carloseduardo/Projects/gm-driver-android/driver"
 alias godot_files="cd /Users/carloseduardo/MyDotFiles"
+alias gosdk="cd /Users/carloseduardo/Library/Android/sdk"
+alias gotest-commons="cd /Users/carloseduardo/Projects/gm-test-commons"
+alias godependencies="cd /Users/carloseduardo/Projects/gm-dependencies"
+alias godriver-tests="cd /Users/carloseduardo/Projects/gm-driver-android-tests"
+alias goavl="cd /Users/carloseduardo/Projects/AVL_Tree"
+alias goasync-test="cd /Users/carloseduardo/Projects/gm-async-tests-core"
+alias gostatemachine="cd /Users/carloseduardo/Projects/StateMachine"

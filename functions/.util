@@ -6,7 +6,7 @@ addGoAlias() {
   source $HOME/.zshrc
 }
 
-cp_ssh_key() {
+cp_file_content() {
   local file="$1"
   cat `pwd`/file | pbcopy
 }

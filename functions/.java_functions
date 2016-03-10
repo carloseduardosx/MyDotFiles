@@ -1,0 +1,6 @@
+JAVA[7]=$JAVA7_HOME
+JAVA[8]=$JAVA8_HOME
+
+usejava() {
+     export JAVA_HOME=$JAVA[$1]
+}

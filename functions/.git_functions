@@ -6,23 +6,32 @@ g_files_modified_by() {
 }
 
 g_actual_branch() {
-   git branch | sed -n '/\* /s///p'
+  git branch | sed -n '/\* /s///p'
 }
 
-g_pull() {
+gpull() {
   local branch=$( git branch | sed -n 's/^\* \(.*\)/\1/p' )
   git pull origin $branch
 }
 
-g_push() {
+gpush() {
   local branch=$( git branch | sed -n 's/^\* \(.*\)/\1/p' )
   git push origin $branch
 }
 
-git_cf() {
-      git checkout feature/$1
+gcf() {
+  git checkout feature/GM-$1
 }
 
-git_ch() {
-      git checkout hotfix/$1
+gch() {
+  git checkout hotfix/GM-$1
+}
+
+gc() {
+  local message
+
+  info "Type message do you want to add in yout commit:"
+  read message
+
+  git commit -m "$message"
 }

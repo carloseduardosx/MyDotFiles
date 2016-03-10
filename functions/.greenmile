@@ -1,9 +1,59 @@
 #!/bin/bash
 
-gm_start_activitiy() {
+gm_start_activity() {
   local activity="$1"
-  adb shell am start -n com.greenmile.android/com.greenmile.android.activity.$activity &>-
+  adb shell am start -n com.greenmile.android/com.greenmile.android.activity.$activity
 }
+
+gm_install_release_apk() {
+  adb install $HOME/Projects/gm-driver-android/driver/greenmile-android/build/outputs/apk/greenmile-android-release-$1.apk
+}
+
+run_query() {
+  local file=$1
+  local query=$2
+
+  echo $query | sqlite3 $file
+  echo $query | sqlite3 $file | pbcopy
+
+  info "=====> Result copied to clipboard :) <====="
+}
+
+gm_run_query() {
+  local query=$1
+
+  run_query $HOME/Documents/banco_devices/greenmile.db $query
+}
+
+gm_run_query_device() {
+  local query=$1
+
+  gm_get_data_device
+  gm_run_query $query
+}
+
+gm_run_query_requests() {
+  gm_run_query_device "SELECT * FROM request;"
+}
+
+gm_commits() {
+
+  local project
+  local branch
+  local author
+
+  echo -n 'What project do you want see: '
+  read project
+
+  echo -n 'What branch do you want see: '
+  read branch
+
+  echo -n 'What author do you want search: '
+  read author
+
+  open https://github.com/greenmilellc-org/$project/commits/$branch\?author\=$author
+}
+
 
 gm_uninstall_all() {
   info 'Available Devices'
@@ -25,7 +75,7 @@ gm_uninstall_all() {
   adb uninstall com.greenmile.android
 
   info 'Deleting GreenMile folder from sdcard'
-  adb shell rm -rf /sdcard/Greenmile/
+  adb shell rm -rf /sdcard/Greenmile
 
   info 'Deleting GreenMile APK from data folder'
   rm /data/app/com.greenmile.android-1.apk
