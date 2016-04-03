@@ -91,10 +91,52 @@ alias g_show_unchaged_files="git ls-files -v|grep '^h'"
 
 # Maven
 alias mvn_install="mvn clean install -DskipTests=true"
-alias mvn_package="mvn clean package -DskipTests=true"
+
+alias mvn_package="mvn clean compile package -DskipTests=true"
+
 alias mvn_install_sync="mvn clean install -U -P remote"
 
 
 # Source
 
 alias reload="source $HOME/.zshrc"
+
+# Faces https://www.npmjs.com/package/cool-ascii-faces
+alias faces="cool-face -a"
+
+# Util
+
+alias list_os_logs="ls -la /var/log"
+
+alias list_temp_files="ls -la /private/tmp"
+
+alias list_all_devices="ls -la /dev"
+
+alias list_system_and_user_applications="ls -la /bin /usr/bin"
+
+alias list_superuser_applications="ls -la /sbin /usr/sbin"
+
+alias list_brew_applications="ls -la /usr/local/Cellar"
+
+alias list_applications_installed_by_user="ls -la \
+                                              /usr/local/Cellar \
+                                              /usr/local/bin \
+                                              /usr/local/etc \
+                                              /usr/local/share \
+                                              /usr/local/opt \
+                                              /usr/local/lib"
+
+alias list_all_disponible_documentation="ls -la \
+                                              /usr/share/man/man1 \
+                                              /usr/share/man/man2 \
+                                              /usr/share/man/man3 \
+                                              /usr/share/man/man4 \
+                                              /usr/share/man/man5 \
+                                              /usr/share/man/man6 \
+                                              /usr/share/man/man7 \
+                                              /usr/share/man/man8 \
+                                              /usr/share/man/man9 \
+                                              /usr/share/man/mann >> ~/disponible_documentation.txt; \
+                                              open ~/disponible_documentation.txt; \
+                                              sleep 3s; \
+                                              rm ~/disponible_documentation.txt;"
