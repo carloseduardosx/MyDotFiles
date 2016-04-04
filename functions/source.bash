@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export FUNCTIONS=$HOME/MyDotFiles/functions
+export FUNCTIONS=$HOME/Projects/MyDotFiles/functions
 
 . $FUNCTIONS/.android
 . $FUNCTIONS/.git_functions

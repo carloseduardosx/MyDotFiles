@@ -14,3 +14,21 @@ cp_file_content() {
 find_function() {
   type -a $1
 }
+
+count_files_recursively() {
+
+  local directory=$1
+
+  if [[ -d $directory ]] then
+
+    find $directory -type f -print | wc -l
+  else
+
+    error "The path passed should be a directory!"
+  fi
+}
+
+show_enviroment_variables() {
+
+  info "$(printenv | sort)"
+}
