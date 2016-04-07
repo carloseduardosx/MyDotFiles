@@ -106,13 +106,13 @@ alias faces="cool-face -a"
 
 # Util
 
-alias list_os_logs="ls -la /var/log"
+alias list_so_logs="ls -la /var/log"
 
 alias list_temp_files="ls -la /private/tmp"
 
 alias list_all_devices="ls -la /dev"
 
-alias list_system_and_user_applications="ls -la /bin /usr/bin"
+alias list_system_applications="ls -la /bin /usr/bin"
 
 alias list_superuser_applications="ls -la /sbin /usr/sbin"
 
