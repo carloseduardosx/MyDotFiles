@@ -36,6 +36,20 @@ gc() {
   git commit -m "$message"
 }
 
+gsync() {
+
+  info "Adding all files to index"
+  git add .
+
+  info "Committing files indexed"
+  git commit -m "$(date +"%a %-d of %b of %Y at %X")"
+
+  info "Syncing local changes with remote changes"
+  local branch=$( git branch | sed -n 's/^\* \(.*\)/\1/p' )
+  git pull --rebase origin $branch
+  gpush
+}
+
 gh_branches() {
 
   local user

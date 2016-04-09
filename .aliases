@@ -38,6 +38,10 @@ alias gm_start_list_stops_activity="adb shell am start -n com.greenmile.android/
 
 alias gm_driver_build="./gradlew clean daoConfig build --configure-on-demand --parallel --max-workers 3 --daemon --profile"
 
+alias gm_build_driver_tests="mvn clean install exec:java package -DskipTests"
+
+alias gm_driver_tests_exec="mvn clean exec:java compile install"
+
 alias gm_copy_debug_apk_to_appium_folder="cp $HOME/Projects/gm-driver-android/driver/greenmile-android/build/outputs/apk/greenmile-android-debug-unaligned-*.apk /android_appium_apks/master/greenmile-android-release.apk"
 
 alias gm_install_debug_apk="adb install $HOME/Projects/gm-driver-android/driver/greenmile-android/build/outputs/apk/greenmile-android-debug-unaligned-*.apk"
@@ -90,11 +94,11 @@ alias g_unmerge='git reset --merge ORIG_HEAD'
 alias g_show_unchaged_files="git ls-files -v|grep '^h'"
 
 # Maven
-alias mvn_install="mvn clean install -DskipTests=true"
+alias mvn_install="mvn clean install -DskipTests"
 
-alias mvn_package="mvn clean compile package -DskipTests=true"
+alias mvn_package="mvn clean compile package -DskipTests"
 
-alias mvn_install_sync="mvn clean install -U -P remote"
+alias mvn_install_sync="mvn clean install -U -P -DskipTests"
 
 
 # Source
@@ -102,7 +106,22 @@ alias mvn_install_sync="mvn clean install -U -P remote"
 alias reload="source $HOME/.zshrc"
 
 # Faces https://www.npmjs.com/package/cool-ascii-faces
+
 alias faces="cool-face -a"
+
+# Apple
+
+alias kill_system_ui="killall SystemUIServer"
+alias kill_finder="killall Finder /System/Library/CoreServices/Finder.app"
+alias show_files="defaults write com.apple.finder AppleShowAllFiles YES; kill_finder"
+alias hide_files="defaults write com.apple.finder AppleShowAllFiles NO; kill_finder"
+alias update_osx="sudo softwareupdate -i -a"
+alias update_brew="brew update; brew upgrade --all; brew linkapps; brew cleanup; brew cask update"
+alias update_all='update_osx; update_brew; npm update -g; sudo gem update --system; sudo gem update'
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+alias spotlight_off="sudo mdutil -a -i off"
+alias spotlight_on="sudo mdutil -a -i on"
 
 # Util
 
