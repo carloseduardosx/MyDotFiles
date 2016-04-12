@@ -38,9 +38,9 @@ alias gm_start_list_stops_activity="adb shell am start -n com.greenmile.android/
 
 alias gm_driver_build="./gradlew clean daoConfig build --configure-on-demand --parallel --max-workers 3 --daemon --profile"
 
-alias gm_build_driver_tests="mvn clean install exec:java package -DskipTests"
+alias gm_build_driver_tests="mvn clean compile exec:java package -DskipTests"
 
-alias gm_driver_tests_exec="mvn clean exec:java compile install"
+alias gm_driver_tests_exec="mvn clean compile exec:java test"
 
 alias gm_copy_debug_apk_to_appium_folder="cp $HOME/Projects/gm-driver-android/driver/greenmile-android/build/outputs/apk/greenmile-android-debug-unaligned-*.apk /android_appium_apks/master/greenmile-android-release.apk"
 

@@ -8,7 +8,6 @@ export ANDROID_HOME=/Users/carloseduardo/Library/Android/sdk
 export ANDROID_TOOLS=$ANDROID_HOME/tools
 export ANDROID_BUILD_TOOLS=$ANDROID_HOME/build-tools/22.0.1
 export ANDROID_PLATFORM_TOOLS=$ANDROID_HOME/platform-tools
-
 path+=(“$ANDROID_HOME”, "$ANDROID_TOOLS", "$ANDROID_BUILD_TOOLS", "$ANDROID_PLATFORM_TOOLS")
 
 # Java

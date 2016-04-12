@@ -31,7 +31,8 @@ count_files_recursively() {
 
   if [[ -d $directory ]] then
 
-    find $directory -type f -print | wc -l
+    file_number="$(find $directory -type f -print | wc -l)"
+    info "$file_number files in this directory"
   else
 
     error "The path passed should be a directory!"
