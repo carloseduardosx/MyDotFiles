@@ -150,7 +150,7 @@ alias list_all_disponible_documentation="ls -la \
                                               /usr/share/man/man2 \
                                               /usr/share/man/man3 \
                                               /usr/share/man/man4 \
-                                              /usr/share/man/man5 \
+                                              /usr/s  hare/man/man5 \
                                               /usr/share/man/man6 \
                                               /usr/share/man/man7 \
                                               /usr/share/man/man8 \
@@ -159,3 +159,10 @@ alias list_all_disponible_documentation="ls -la \
                                               open ~/disponible_documentation.txt; \
                                               sleep 3s; \
                                               rm ~/disponible_documentation.txt;"
+
+# Docker
+
+alias dps="docker ps"
+alias lvmi="boot2docker ip"
+alias up_linux_vm="boot2docker up; eval \"$(boot2docker shellinit)\""
+alias down_linux_vm="boot2docker down"

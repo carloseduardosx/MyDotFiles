@@ -7,3 +7,4 @@ export FUNCTIONS=$HOME/Projects/MyDotFiles/functions
 . $FUNCTIONS/.greenmile
 . $FUNCTIONS/.util
 . $FUNCTIONS/.java_functions
+. $FUNCTIONS/.docker

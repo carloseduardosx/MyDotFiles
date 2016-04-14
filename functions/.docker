@@ -1,0 +1,25 @@
+
+
+function docker_run_detached_mod() {
+
+  docker run -d -P --name $1
+}
+
+function dstart() {
+
+  docker start $1
+}
+
+function dport() {
+
+  docker port $1
+}
+
+function dstop() {
+
+  docker stop $1
+}
+
+function dremove() {
+  docker rm $1
+}
