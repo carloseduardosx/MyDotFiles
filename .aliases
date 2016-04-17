@@ -36,7 +36,7 @@ alias gm_copy_from_databases_to_android_appium_apks="cp -R /Users/carloseduardo/
 
 alias gm_start_list_stops_activity="adb shell am start -n com.greenmile.android/com.greenmile.android.activity.list.ListStopsActivity"
 
-alias gm_driver_build="./gradlew clean daoConfig build --configure-on-demand --parallel --max-workers 3 --daemon --profile"
+alias gm_driver_build="./gradlew clean daoConfig build --configure-on-demand --parallel --max-workers 3 --daemon"
 
 alias gm_build_driver_tests="mvn clean compile exec:java package -DskipTests"
 
@@ -150,7 +150,7 @@ alias list_all_disponible_documentation="ls -la \
                                               /usr/share/man/man2 \
                                               /usr/share/man/man3 \
                                               /usr/share/man/man4 \
-                                              /usr/s  hare/man/man5 \
+                                              /usr/share/man/man5 \
                                               /usr/share/man/man6 \
                                               /usr/share/man/man7 \
                                               /usr/share/man/man8 \
