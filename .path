@@ -8,13 +8,13 @@ export ANDROID_HOME="/Users/carloseduardo/Library/Android/sdk"
 export ANDROID_TOOLS="$ANDROID_HOME/tools"
 export ANDROID_BUILD_TOOLS="$ANDROID_HOME/build-tools/23.0.2"
 export ANDROID_PLATFORM_TOOLS="$ANDROID_HOME/platform-tools"
-path+=("$ANDROID_HOME", "$ANDROID_TOOLS", "$ANDROID_BUILD_TOOLS", "$ANDROID_PLATFORM_TOOLS")
+path+=("$ANDROID_HOME" "$ANDROID_TOOLS" "$ANDROID_BUILD_TOOLS" "$ANDROID_PLATFORM_TOOLS")
 
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home"
 export JAVA7_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home"
 export JAVA8_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home"
-path+=("$JAVA_HOME", "$JAVA7_HOME", "$JAVA8_HOME")
+path+=("$JAVA_HOME" "$JAVA7_HOME" "$JAVA8_HOME")
 
 # Kotlin
 export KOTLIN_HOME="/Users/carloseduardo/compiler/kotlinc/bin"
