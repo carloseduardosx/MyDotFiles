@@ -1,31 +1,31 @@
 #!/bin/bash
 
-addGoAlias() {
+function addGoAlias() {
   alias_name=$1
   echo "alias go$alias_name=\"cd `pwd`\"" >> $HOME/Projects/MyDotFiles/.goaliases
   source $HOME/.zshrc
 }
 
-cp_file_content() {
+function cp_file_content() {
   local file="$1"
   cat `pwd`/file | pbcopy
 }
 
-find_function() {
+function find_function() {
   type -a $1
 }
 
-build_failure() {
+function build_failure() {
 
   exit 1
 }
 
-build_success() {
+function build_success() {
 
   exit 0
 }
 
-count_files_recursively() {
+function count_files_recursively() {
 
   local directory=$1
 
@@ -39,14 +39,14 @@ count_files_recursively() {
   fi
 }
 
-show_enviroment_variables() {
+function show_enviroment_variables() {
 
   info "$(printenv | sort)"
 }
 
 
 # Get colors in manual pages
-man() {
+function man() {
     env \
         LESS_TERMCAP_mb=$(printf "\e[1;31m") \
         LESS_TERMCAP_md=$(printf "\e[1;31m") \
@@ -56,4 +56,16 @@ man() {
         LESS_TERMCAP_ue=$(printf "\e[0m") \
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
         man "$@"
+}
+
+function checksum() {
+    local file=$1
+    local sha=$2
+
+    if [[ -n "$sha" ]]; then
+
+      shasum -a $sha $file
+    else
+      shasum $file
+    fi
 }
