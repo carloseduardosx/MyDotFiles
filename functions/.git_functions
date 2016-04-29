@@ -45,8 +45,7 @@ gsync() {
   git commit -m "$(date +"%a %-d of %b of %Y at %X")"
 
   info "Syncing local changes with remote changes"
-  local branch=$( git branch | sed -n 's/^\* \(.*\)/\1/p' )
-  git pull origin $branch
+  gpull
   gpush
 }
 
