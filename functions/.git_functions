@@ -46,7 +46,7 @@ gsync() {
 
   info "Syncing local changes with remote changes"
   local branch=$( git branch | sed -n 's/^\* \(.*\)/\1/p' )
-  git pull --rebase origin $branch
+  git pull origin $branch
   gpush
 }
 
