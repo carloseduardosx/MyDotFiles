@@ -54,7 +54,7 @@ alias gm_uninstall_driver="adb uninstall com.greenmile.android"
 
 alias gm_uninstall_updater="adb uninstall com.greenmile.updater"
 
-alias gm_get_data_device="adb pull /data/data/com.greenmile.android/databases/greenmile.db ~/Documents/banco_devices/"
+alias gm_get_data_device="adb pull /data/data/com.greenmile.android/databases/greenmile.db ~/.greenmile/database/"
 
 alias gm_push_data_device="adb push greenmile.db /data/data/com.greenmile.android/databases/greenmile.db"
 

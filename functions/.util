@@ -69,3 +69,25 @@ function checksum() {
       shasum $file
     fi
 }
+
+function start_emulator() {
+
+  emulator="$1"
+
+  if [[ -n $emulator ]]; then
+    screen -d -m player --vm-name "$emulator"
+  else
+    screen -d -m player --vm-name "c76f9518-ca45-4870-9c42-9108df91e444" # Motorola Moto X - 4.4.4 - API 19 - 720x1280
+  fi
+}
+
+function quit_screen() {
+
+  screenname="$1"
+
+  if [[ -n "$screenname" ]]; then
+    screen -X -S "$screenname" quit
+  else
+    error "Should pass screenname to quit"
+  fi
+}

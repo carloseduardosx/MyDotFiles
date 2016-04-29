@@ -48,3 +48,7 @@ path+=("$MACPORTS")
 # Z
 export Z="/usr/local/etc/profile.d"
 path+=("$Z")
+
+# Genymotion
+export PLAYER="/Applications/Genymotion.app/Contents/MacOS/player.app/Contents/MacOS/"
+path+=("$PLAYER")
