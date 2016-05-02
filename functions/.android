@@ -56,3 +56,15 @@ function android_screenshot() {
       open screen.png
     fi
 }
+
+function android_clear_app_data() {
+
+  package="$1"
+
+  if [[ -n "$package" ]]; then
+    adb shell input keyevent 3
+    adb shell pm clear $package
+  else
+    error "Should pass a app package name"
+  fi
+}

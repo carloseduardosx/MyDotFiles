@@ -107,3 +107,18 @@ request_info() {
   printf "\n\n\n------- WGET\n\n\n"
   wget --server-response -d -H -t 3 -v --spider $url
 }
+
+function chrome(){
+  url=$1
+  /usr/bin/open -a "/Applications/Google Chrome.app" "$url"
+}
+
+function jira () {
+  task=$1
+  if [[ -z "$task" ]]; then
+    fb=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+    name=$(sed "s/feature\///g" <<< "$fb")
+    task=$(sed "s/hotfix\///g" <<< "$name")
+  fi
+  chrome "https://jira.greenmile.com/browse/GM-$task"
+}
