@@ -4,3 +4,42 @@ android_app_backup() {
   local package="$1"
   adb backup -f ~/Documents/adb_backup/GMBackup.ab -n oapk $package
 }
+
+android_type_text() {
+  local text=$1
+
+  adb shell input text "${text// /%s}"
+}
+
+android_clear_input() {
+  local loop_count=$1
+
+  adb shell input keyevent KEYCODE_MOVE_END
+
+  for i in $(seq $loop_count)
+  do
+    adb shell input keyevent KEYCODE_DEL
+  done
+}
+
+android_current_activity() {
+  current_activity=$(adb shell dumpsys activity activities | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} mResumedActivity | cut -d . -f 5 | cut -d ' ' -f 1)
+
+  if [[ $current_activity != *"Activity" ]]
+  then
+    current_activity=$(adb shell dumpsys activity activities | grep mFocusedActivity | cut -d . -f 5 | cut -d ' ' -f 1)
+  fi
+
+  echo $current_activity
+}
+
+android_current_list_activity() {
+  current_activity=$(adb shell dumpsys activity activities | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} mResumedActivity | cut -d . -f 6 | cut -d ' ' -f 1)
+
+  if [[ $current_activity != *"Activity" ]]
+  then
+    current_activity=$(adb shell dumpsys activity activities | grep mFocusedActivity | cut -d . -f 5 | cut -d ' ' -f 1)
+  fi
+
+  echo $current_activity
+}

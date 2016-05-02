@@ -91,3 +91,19 @@ function quit_screen() {
     error "Should pass screenname to quit"
   fi
 }
+
+request_info() {
+  protocol=$1; url=$2; host=$protocol"://"$url
+
+  printf "------- Dig\n"
+  dig $url
+
+  printf "------- Curl\n\n\n"
+  curl -v -I -H "Testing: Test header so you see this works :)" $host
+
+  printf "\n\n\n------- Open SSL\n\n\n"
+  openssl s_client -connect $url:443 -tls1
+
+  printf "\n\n\n------- WGET\n\n\n"
+  wget --server-response -d -H -t 3 -v --spider $url
+}
