@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #################################################################
-#Android
+# Android                                                       #
 #################################################################
 
 alias android_clean_log="adb logcat -c"
@@ -22,7 +22,7 @@ alias android_list_all_packages="adb -d shell 'pm list packages -f' | sed -e 's/
 
 
 #################################################################
-#Greenmile
+#Greenmile                                                      #
 #################################################################
 
 alias gm_pidcat="pidcat com.greenmile.android"
@@ -40,7 +40,7 @@ alias gm_copy_from_databases_to_android_appium_apks="cp -R /Users/carloseduardo/
 
 alias gm_start_list_stops_activity="adb shell am start -n com.greenmile.android/com.greenmile.android.activity.list.ListStopsActivity"
 
-alias gm_driver_build="./gradlew clean daoConfig build --configure-on-demand --parallel --max-workers 3 --daemon"
+alias gm_driver_build="gradle clean daoConfig build --configure-on-demand --parallel --max-workers 4 --daemon"
 
 alias gm_build_driver_tests="mvn clean compile exec:java package -DskipTests"
 
@@ -71,7 +71,7 @@ alias gm_fuck="gm_driver_build;
 
 
 #################################################################
-# Renewer
+# Renewer                                                       #
 #################################################################
 
 alias rb_get_database="adb pull /data/data/com.carloseduardo.renewer.books/databases/renewer.db $HOME/databases/renewer.db"
@@ -82,21 +82,21 @@ alias rb_uninstall="adb uninstall com.carloseduardo.renewer.books"
 
 
 #################################################################
-# Virtual Box
+# Virtual Box                                                   #
 #################################################################
 
 alias list_vms="VBoxManage list vms"
 
 
 #################################################################
-# Clojure
+# Clojure                                                       #
 #################################################################
 
 alias lein="/Users/carloseduardo/MyDotFiles/scripts/lein.sh"
 
 
 #################################################################
-# Git
+# Git                                                           #
 #################################################################
 
 alias gl='git log --all --graph --pretty=format:"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
@@ -106,7 +106,7 @@ alias g_unmerge='git reset --merge ORIG_HEAD'
 alias g_show_unchaged_files="git ls-files -v|grep '^h'"
 
 #################################################################
-# Maven
+# Maven                                                         #
 #################################################################
 
 alias mvn_install="mvn clean install -DskipTests"
@@ -117,19 +117,19 @@ alias mvn_install_sync="mvn clean install -U -P -DskipTests"
 
 
 #################################################################
-# Source
+# Source                                                        #
 #################################################################
 
 alias reload="source $HOME/.zshrc"
 
 #################################################################
-# Faces https://www.npmjs.com/package/cool-ascii-faces
+# Faces https://www.npmjs.com/package/cool-ascii-faces          #
 #################################################################
 
 alias faces="cool-face -a"
 
 #################################################################
-# Apple
+# Apple                                                         #
 #################################################################
 
 alias kill_system_ui="killall SystemUIServer"
@@ -145,7 +145,7 @@ alias spotlight_off="sudo mdutil -a -i off"
 alias spotlight_on="sudo mdutil -a -i on"
 
 #################################################################
-# Util
+# Util                                                          #
 #################################################################
 
 alias list_so_logs="ls -la /var/log"
@@ -184,7 +184,7 @@ alias list_all_disponible_documentation="ls -la \
                                               rm ~/disponible_documentation.txt;"
 
 #################################################################
-# Docker
+# Docker                                                        #
 #################################################################
 
 alias dps="docker ps"
