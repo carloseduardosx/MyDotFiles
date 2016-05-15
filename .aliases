@@ -42,6 +42,8 @@ alias gm_start_list_stops_activity="adb shell am start -n com.greenmile.android/
 
 alias gm_driver_build="gradle clean daoConfig build --configure-on-demand --parallel --max-workers 4 --daemon"
 
+alias gm_driver_normal_build="gradle clean daoConfig build"
+
 alias gm_build_driver_tests="mvn clean compile exec:java package -DskipTests"
 
 alias gm_driver_tests_exec="mvn clean compile exec:java test"
@@ -188,6 +190,7 @@ alias list_all_disponible_documentation="ls -la \
 #################################################################
 
 alias dps="docker ps"
+alias dmls="docker-machine ls"
 alias lvmi="boot2docker ip"
 alias up_linux_vm="boot2docker up; eval \"$(boot2docker shellinit)\""
 alias down_linux_vm="boot2docker down"

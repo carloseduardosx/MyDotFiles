@@ -25,8 +25,7 @@ function android_clear_input() {
 function android_current_activity() {
   current_activity=$(adb shell dumpsys activity activities | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} mResumedActivity | cut -d . -f 5 | cut -d ' ' -f 1)
 
-  if [[ $current_activity != *"Activity" ]]
-  then
+  if [[ $current_activity != *"Activity" ]]; then
     current_activity=$(adb shell dumpsys activity activities | grep mFocusedActivity | cut -d . -f 5 | cut -d ' ' -f 1)
   fi
 

@@ -1,25 +1,84 @@
-
-
 function docker_run_detached_mod() {
 
   docker run -d -P --name $1
 }
 
-function dstart() {
+function dmstart() {
 
-  docker start $1
+  machine="$1"
+
+  if [[ -z "$machine" ]]; then
+
+    error "Should pass machine name!"
+  else
+
+    searched_machine=$(docker-machine ls | grep "$1" -o -m 1)
+
+    if [[ "$searched_machine" == "$machine" ]]; then
+      docker-machine start $1
+      docker-machine env $1
+      eval $(docker-machine env $1)
+    else
+      error "Docker machine not exist"
+    fi
+  fi
 }
 
-function dport() {
+function dcupc() {
 
-  docker port $1
+  if [[ -n "$1" ]]; then
+    docker-compose up -d $1
+  else
+    error "Should pass machine name!"
+  fi
 }
 
-function dstop() {
+function dcstopc() {
 
-  docker stop $1
+  if [[ -n "$1" ]]; then
+    docker-compose stop $1
+  else
+    error "Should pass machine name!"
+  fi
 }
 
-function dremove() {
+function dbash() {
+
+  if [[ -n "$1" ]]; then
+    docker exec -it $1 /bin/bash
+  else
+    error "Should pass machine name!"
+  fi
+}
+
+function dmstop() {
+
+  machine="$1"
+
+  if [[ -z "$machine" ]]; then
+
+    error "Should pass machine name!"
+  else
+
+    searched_machine=$(docker-machine ls | grep "$1" -o -m 1)
+
+    if [[ "$searched_machine" == "$machine" ]]; then
+      docker-machine stop $1
+    else
+      error "Docker machine not exist"
+    fi
+  fi
+}
+
+function dmssh() {
+
+  if [[ -n "$1" ]]; then
+    docker-machine ssh $1
+  else
+    error "Docker machine not exist"
+  fi
+}
+
+function drm() {
   docker rm $1
 }
