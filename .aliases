@@ -27,6 +27,8 @@ alias android_list_all_packages="adb -d shell 'pm list packages -f' | sed -e 's/
 
 alias gm_pidcat="pidcat com.greenmile.android"
 
+alias gmdjs_android_build="cordova run android --device"
+
 alias gm_push_db_for_survey_tests="adb shell rm /data/data/com.greenmile.android/databases/greenmile.db-journal && adb push /android_appium_apks/master/greenmile.db /data/data/com.greenmile.android/databases/greenmile.db;
                                    adb push /android_appium_apks/master/globalPrefs.xml /data/data/com.greenmile.android/shared_prefs/globalPrefs.xml && adb shell am start -n com.greenmile.android/com.greenmile.android.activity.list.ListStopsActivity"
 
@@ -50,7 +52,7 @@ alias gm_driver_tests_exec="mvn clean compile exec:java test"
 
 alias gm_copy_debug_apk_to_appium_folder="cp $HOME/Projects/gm-driver-android/driver/greenmile-android/build/outputs/apk/greenmile-android-debug-unaligned-*.apk /android_appium_apks/master/greenmile-android-release.apk"
 
-alias gm_install_debug_apk="adb install $HOME/Projects/gm-driver-android/driver/greenmile-android/build/outputs/apk/greenmile-android-debug-unaligned-*.apk"
+alias gm_install_debug_apk="adb install $HOME/Projects/gm-driver-android/greenmile-android/build/outputs/apk/greenmile-android-debug-unaligned-*.apk"
 
 alias gm_uninstall_driver="adb uninstall com.greenmile.android"
 
@@ -65,6 +67,8 @@ alias gm_start_list_stop="adb shell am start -n com.greenmile.android/com.greenm
 alias gm_start_controller_activity="adb shell am start -n com.greenmile.android/com.greenmile.android.activity.ControllerActivity"
 
 alias gm_copy_db_to_sdcard="adb shell am broadcast -a com.greenmile.android.COPY_DATABASE"
+
+alias gm_server_run_sonar="mvn clean package -P remote sonar:sonar -Dsonar.login=greenmile -Dsonar.password=gr33n765u! -Dsonar.host.url=http://192.168.99.100:9000/sonar -XX:MaxPermSize=1024m"
 
 alias gm_fuck="gm_driver_build;
                gm_uninstall_all;
@@ -189,6 +193,8 @@ alias list_all_disponible_documentation="ls -la \
 # Docker                                                        #
 #################################################################
 
+alias dc="docker-compose"
+alias dm="docker-machine"
 alias dps="docker ps"
 alias dmls="docker-machine ls"
 alias lvmi="boot2docker ip"

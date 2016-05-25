@@ -1,4 +1,5 @@
-export ZSH=/Users/carloseduardo/.oh-my-zsh
+export ZSH="/Users/carloseduardo/.oh-my-zsh"
+export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
 
 ZSH_THEME="robbyrussell"
 

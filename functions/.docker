@@ -82,3 +82,7 @@ function dmssh() {
 function drm() {
   docker rm $1
 }
+
+function drmallc() {
+  docker rm `docker ps -a -q`
+}
