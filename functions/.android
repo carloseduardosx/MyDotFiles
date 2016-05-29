@@ -67,3 +67,34 @@ function android_clear_app_data() {
     error "Should pass a app package name"
   fi
 }
+
+# TODO Implement counter
+function android_hungry_shark_earn_diamond() {
+
+  ((diamonds = 0))
+
+  while [[ true ]]; do
+    adb shell input tap 746 826
+    sleep 60s
+
+    current_activity=$(android_current_list_activity)
+    info "Current Acitivty: $current_activity"
+    if [[ "$current_activity" == "AppLovinInterstitialActivity" || "$current_activity" == "FullScreenAdActivity" ]]; then
+
+      ((diamonds=diamonds + 2))
+      success "Current diamonds earned: $diamonds => `date +"%a %-d of %b of %Y at %X"`"
+
+      ## Press BackButton to close ads
+      adb shell input keyevent KEYCODE_BACK
+      sleep 5s
+    else
+
+      error "Fail to load ads!"
+      error "Current diamonds earned: $diamonds => `date +"%a %-d of %b of %Y at %X"`"
+
+      ## Close  dialog
+      adb shell input keyevent KEYCODE_ENTER
+      adb shell input keyevent KEYCODE_ENTER
+    fi
+  done
+}
