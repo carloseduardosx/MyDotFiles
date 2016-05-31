@@ -1,0 +1,9 @@
+#!/bin/bash
+
+function cpa() {
+  cordova plugin add $1
+}
+
+function cpr() {
+  cordova plugin rm $1
+}

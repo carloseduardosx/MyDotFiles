@@ -20,11 +20,21 @@ gpush() {
 }
 
 gcf() {
-  git checkout feature/GM-$1
+
+  if [[ "$2" == "js" ]]; then
+    git checkout feature/GMDJS-$1
+  else
+    git checkout feature/GM-$1
+  fi
 }
 
 gch() {
-  git checkout hotfix/GM-$1
+
+  if [[ "$2" == "js" ]]; then
+    git checkout hotfix/GMDJS-$1
+  else
+    git checkout hotfix/GM-$1
+  fi
 }
 
 gc() {

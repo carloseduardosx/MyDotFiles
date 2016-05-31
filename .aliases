@@ -42,6 +42,8 @@ alias gm_copy_from_databases_to_android_appium_apks="cp -R /Users/carloseduardo/
 
 alias gm_start_list_stops_activity="adb shell am start -n com.greenmile.android/com.greenmile.android.activity.list.ListStopsActivity"
 
+alias gmdjs_start="adb shell am start -n com.greenmile.driver/.MainActivity"
+
 alias gm_driver_build="gradle clean daoConfig build --configure-on-demand --parallel --max-workers 4 --daemon"
 
 alias gm_driver_normal_build="gradle clean daoConfig build"
@@ -201,3 +203,9 @@ alias lvmi="boot2docker ip"
 alias up_linux_vm="boot2docker up; eval \"$(boot2docker shellinit)\""
 alias down_linux_vm="boot2docker down"
 alias show_container_statistics="docker stats `docker ps | tail -n+2 | awk '{ print $NF }'`"
+
+
+#################################################################
+# Docker                                                        #
+#################################################################
+alias c="cordova"

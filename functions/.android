@@ -75,7 +75,7 @@ function android_hungry_shark_earn_diamond() {
 
   while [[ true ]]; do
     adb shell input tap 746 826
-    sleep 60s
+    sleep 90s
 
     current_activity=$(android_current_list_activity)
     info "Current Acitivty: $current_activity"
