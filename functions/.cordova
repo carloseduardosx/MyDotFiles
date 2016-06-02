@@ -7,3 +7,48 @@ function cpa() {
 function cpr() {
   cordova plugin rm $1
 }
+
+function capt() {
+
+  plugin_name="$1"
+  file_name="$3"
+  package_path="$2"
+  package=${package_path//\//\.}
+
+plugin_xml=$(cat << EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="$plugin_name" version="0.0.1">
+    <name>$plugin_name</name>
+    <description>put_your_description_here</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,device</keywords>
+    <platform name="android">
+        <js-module src="www/$file_name.js" name="$plugin_name">
+         <clobbers target="$plugin_name" />
+        </js-module>
+        <config-file target="config.xml" parent="/*">
+            <feature name="$plugin_name" >
+                <param name="android-package" value="$package.$file_name"/>
+            </feature>
+        </config-file>
+        <source-file src="src/$package_path/$file_name.java" target-dir="src/$package_path" />
+    </platform>
+</plugin>
+EOF
+)
+
+  if [[ -n "$package_path" || -n "$plugin_name" || -n "$file_name" ]]; then
+
+    mkdir -p "$plugin_name/www"
+    mkdir -p "$plugin_name/src/$package_path"
+
+    touch "$plugin_name/www/$file_name.js"
+    touch "$plugin_name/src/$package_path/$file_name.java"
+    echo "$plugin_xml" > $plugin_name/plugin.xml
+  else
+
+    error "Should especify: Plugin name, package and file name"
+    warning "Example: plugin_template plugin-example com.plugin.example ExampleFile"
+  fi
+}
