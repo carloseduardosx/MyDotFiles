@@ -206,6 +206,6 @@ alias show_container_statistics="docker stats `docker ps | tail -n+2 | awk '{ pr
 
 
 #################################################################
-# Docker                                                        #
+# Cordova                                                       #
 #################################################################
 alias c="cordova"

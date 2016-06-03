@@ -1,0 +1,103 @@
+#!/bin/bash
+
+##### Utils
+
+RED='\033[00;31m'
+GREEN='\033[00;32m'
+YELLOW='\033[00;33m'
+
+function error() {
+  printf "\n${RED}%s${END}\n" "$*"
+}
+
+function warning() {
+  printf "\n${YELLOW}%s${END}\n" "$*"
+}
+
+function success() {
+  printf "\n${GREEN}%s${END}\n" "$*"
+}
+
+##### Main Script
+
+plugin_name="$1"
+file_name="$3"
+file_name_lower=$(echo "$file_name" | awk '{print tolower($0)}')
+package_path="$2"
+package=${package_path//\//\.}
+
+plugin_xml=$(cat << EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+      id="$plugin_name" version="0.0.1">
+  <name>$plugin_name</name>
+  <description>put_your_description_here</description>
+  <license>Apache 2.0</license>
+  <keywords>cordova,device</keywords>
+  <platform name="android">
+      <js-module src="www/$file_name.js" name="$plugin_name">
+       <clobbers target="$plugin_name" />
+      </js-module>
+      <config-file target="config.xml" parent="/*">
+          <feature name="$plugin_name" >
+              <param name="android-package" value="$package.$file_name"/>
+          </feature>
+      </config-file>
+      <source-file src="src/$package_path/$file_name.java" target-dir="src/$package_path" />
+  </platform>
+</plugin>
+EOF
+)
+
+template_java=$(cat << EOF
+package $package;
+
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
+import org.json.JSONArray;
+import org.json.JSONException;
+
+public class $file_name extends CordovaPlugin {
+
+  @Override
+  public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+
+      return true;
+  }
+}
+EOF
+)
+
+template_js=$(cat << EOF
+function $file_name() {
+  cordova.exec(success, failed, "$file_name", "", []);
+}
+
+PushNotification.prototype.success = function() {
+  console.log("Success");
+}
+
+PushNotification.prototype.failed = function() {
+  console.log("Failed");
+}
+
+var $file_name_lower = new $file_name();
+module.exports = $file_name_lower;
+EOF
+)
+
+if [[ -n "$package_path" || -n "$plugin_name" || -n "$file_name" ]]; then
+
+  mkdir -p "$plugin_name/www"
+  mkdir -p "$plugin_name/src/$package_path"
+
+  echo "$template_js" > "$plugin_name/www/$file_name.js"
+  echo "$template_java" > "$plugin_name/src/$package_path/$file_name.java"
+  echo "$plugin_xml" > $plugin_name/plugin.xml
+
+  success "Cordova plugin $plugin_name created!"
+else
+
+  error "Should especify: Plugin name, package path and file name"
+  warning "Example: capt plugin-example com/plugin/example ExampleFile"
+fi

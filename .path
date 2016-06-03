@@ -2,6 +2,8 @@
 
 # Path
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
+
 
 # Android
 export ANDROID_HOME="/Users/carloseduardo/Library/Android/sdk"
@@ -55,3 +57,7 @@ path+=("$PLAYER")
 # Sonar
 export SONAR="$HOME/sonarqube"
 path+=("$SONAR")
+
+# Scripts
+export SCRIPTS="$HOME/Projects/MyDotFiles/scripts"
+path+=("$SCRIPTS")
