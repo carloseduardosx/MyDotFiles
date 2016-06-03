@@ -29,17 +29,17 @@ package=${package_path//\//\.}
 plugin_xml=$(cat << EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-      id="$plugin_name" version="0.0.1">
+      id="$package" version="0.0.1">
   <name>$plugin_name</name>
   <description>put_your_description_here</description>
   <license>Apache 2.0</license>
   <keywords>cordova,device</keywords>
   <platform name="android">
-      <js-module src="www/$file_name.js" name="$plugin_name">
-       <clobbers target="$plugin_name" />
+      <js-module src="www/$file_name.js" name="$file_name">
+       <clobbers target="$file_name" />
       </js-module>
       <config-file target="config.xml" parent="/*">
-          <feature name="$plugin_name" >
+          <feature name="$file_name" >
               <param name="android-package" value="$package.$file_name"/>
           </feature>
       </config-file>
@@ -70,16 +70,19 @@ EOF
 
 template_js=$(cat << EOF
 function $file_name() {
-  cordova.exec(success, failed, "$file_name", "", []);
+
+  var exec = function() {
+    cordova.exec(success, failed, "$file_name", "", []);
+  }
 }
 
 PushNotification.prototype.success = function() {
   console.log("Success");
-}
+};
 
 PushNotification.prototype.failed = function() {
   console.log("Failed");
-}
+};
 
 var $file_name_lower = new $file_name();
 module.exports = $file_name_lower;
