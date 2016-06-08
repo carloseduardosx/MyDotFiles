@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function cpa() {
-  cordova plugin add $1
+  cordova plugin add $1 --save
 }
 
 function cpr() {

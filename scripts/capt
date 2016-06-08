@@ -70,23 +70,22 @@ EOF
 )
 
 template_js=$(cat << EOF
-function $file_name() {
-
-  var exec = function() {
-    cordova.exec(success, failed, "$file_name", "", []);
-  }
-}
-
-PushNotification.prototype.success = function() {
-  console.log("Success");
+var $file_name = function() {
 };
 
-PushNotification.prototype.failed = function() {
-  console.log("Failed");
+$file_name.exec = function() {
+
+    var successfully = function () {
+        console.log("Success");
+    };
+
+    var failed = function ()  {
+        console.log("Failed");
+    };
+    cordova.exec(successfully, failed, "$file_name", "", []);
 };
 
-var $file_name_lower = new $file_name();
-module.exports = $file_name_lower;
+module.exports = $file_name;
 EOF
 )
 
