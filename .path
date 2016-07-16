@@ -61,3 +61,7 @@ path+=("$SONAR")
 # Scripts
 export SCRIPTS="$HOME/Projects/MyDotFiles/scripts"
 path+=("$SCRIPTS")
+
+# Babel
+export BABEL="$HOME/Projects/javascript/components/node_modules/babel-cli/bin"
+path+=("$BABEL")

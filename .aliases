@@ -27,8 +27,6 @@ alias android_list_all_packages="adb -d shell 'pm list packages -f' | sed -e 's/
 
 alias gm_pidcat="pidcat com.greenmile.android"
 
-alias gmdjs_android_build="cordova clean && cordova run android --device"
-
 alias gm_push_db_for_survey_tests="adb shell rm /data/data/com.greenmile.android/databases/greenmile.db-journal && adb push /android_appium_apks/master/greenmile.db /data/data/com.greenmile.android/databases/greenmile.db;
                                    adb push /android_appium_apks/master/globalPrefs.xml /data/data/com.greenmile.android/shared_prefs/globalPrefs.xml && adb shell am start -n com.greenmile.android/com.greenmile.android.activity.list.ListStopsActivity"
 
@@ -42,9 +40,7 @@ alias gm_copy_from_databases_to_android_appium_apks="cp -R /Users/carloseduardo/
 
 alias gm_start_list_stops_activity="adb shell am start -n com.greenmile.android/com.greenmile.android.activity.list.ListStopsActivity"
 
-alias gmdjs_start="adb shell am start -n com.greenmile.driver/.MainActivity"
-
-alias gm_driver_build="gradle clean daoConfig build --configure-on-demand --parallel --max-workers 4 --daemon"
+alias gm_driver_build="./gradlew clean daoConfig build --configure-on-demand --parallel --max-workers 4 --daemon"
 
 alias gm_driver_normal_build="gradle clean daoConfig build"
 
@@ -60,7 +56,9 @@ alias gm_uninstall_driver="adb uninstall com.greenmile.android"
 
 alias gm_uninstall_updater="adb uninstall com.greenmile.updater"
 
-alias gm_get_data_device="adb pull /data/data/com.greenmile.android/databases/greenmile.db ~/.greenmile/database/"
+alias gm_get_data_device="adb pull /data/data/com.greenmile.android/databases/greenmile.db ~/greenmile/databases/"
+
+alias gmdjs_get_data_device="adb pull /data/data/com.greenmile.driver/files ~/greenmile/databases/gmdjs_database"
 
 alias gm_push_data_device="adb push greenmile.db /data/data/com.greenmile.android/databases/greenmile.db"
 
@@ -76,6 +74,14 @@ alias gm_fuck="gm_driver_build;
                gm_uninstall_all;
                gm_install_debug_apk;
                gm_start_controller_activity;"
+
+alias gmdjs_android_build="cordova run android --device"
+
+alias gmdjs_android_clean_build="cordova clean && cordova run android --device"
+
+alias gmdjs_start_main_activity="adb shell am start -n com.greenmile.driver/com.greenmile.driver.MainActivity"
+
+alias gmdjs_start="adb shell am start -n com.greenmile.driver/.MainActivity"
 
 
 #################################################################
@@ -209,3 +215,9 @@ alias show_container_statistics="docker stats `docker ps | tail -n+2 | awk '{ pr
 # Cordova                                                       #
 #################################################################
 alias c="cordova"
+
+
+#################################################################
+# Babel                                                         #
+#################################################################
+alias babel="babel.js"

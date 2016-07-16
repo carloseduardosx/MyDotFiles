@@ -9,3 +9,4 @@ export FUNCTIONS=$HOME/Projects/MyDotFiles/functions
 . $FUNCTIONS/.java_functions
 . $FUNCTIONS/.docker
 . $FUNCTIONS/.cordova
+. $FUNCTIONS/.babel

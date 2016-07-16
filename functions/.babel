@@ -1,0 +1,13 @@
+function b() {
+
+  file="$1"
+
+  if [[ "$file" == *".js"* ]]; then
+
+    file=${file//.js}
+    babel "${file}.js" --out-file "${file}_b.js"
+  else
+
+    babel "${file}.js" --out-file "${file}_b.js"
+  fi
+}

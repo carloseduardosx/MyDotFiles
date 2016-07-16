@@ -74,12 +74,12 @@ function android_hungry_shark_earn_diamond() {
   ((diamonds = 0))
 
   while [[ true ]]; do
-    adb shell input tap 746 826
+    adb shell input tap 730 830 # Zenfone 2: 746 826  -  Galaxy S5: 730 830
     sleep 90s
 
     current_activity=$(android_current_list_activity)
     info "Current Acitivty: $current_activity"
-    if [[ "$current_activity" == "AppLovinInterstitialActivity" || "$current_activity" == "FullScreenAdActivity" ]]; then
+    if [[ "$current_activity" == "AppLovinInterstitialActivity" || "$current_activity" == "FullScreenAdActivity" || "$current_activity" == "adcolony" ]]; then
 
       ((diamonds=diamonds + 2))
       success "Current diamonds earned: $diamonds => `date +"%a %-d of %b of %Y at %X"`"

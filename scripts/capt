@@ -30,19 +30,27 @@ plugin_xml=$(cat << EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
       id="$package" version="0.0.1">
+
   <name>$plugin_name</name>
+
   <description>put_your_description_here</description>
+
   <license>Apache 2.0</license>
+
   <keywords>cordova,device</keywords>
+
   <platform name="android">
+
       <js-module src="www/$file_name.js" name="$file_name">
        <clobbers target="$file_name" />
       </js-module>
+
       <config-file target="config.xml" parent="/*">
           <feature name="$file_name" >
               <param name="android-package" value="$package.$file_name"/>
           </feature>
       </config-file>
+
       <source-file src="src/$package_path/$file_name.java" target-dir="src/$package_path" />
   </platform>
 </plugin>
@@ -59,18 +67,18 @@ import org.json.JSONException;
 
 public class $file_name extends CordovaPlugin {
 
-  @Override
-  public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    @Override
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
-      callbackContext.success();
-      return true;
-  }
+        callbackContext.success();
+        return true;
+    }
 }
 EOF
 )
 
 template_js=$(cat << EOF
-var $file_name = function() {
+var $file_name = {
 };
 
 $file_name.exec = function() {
