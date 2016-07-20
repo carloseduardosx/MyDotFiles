@@ -66,7 +66,7 @@ alias gm_start_list_stop="adb shell am start -n com.greenmile.android/com.greenm
 
 alias gm_start_controller_activity="adb shell am start -n com.greenmile.android/com.greenmile.android.activity.ControllerActivity"
 
-alias gm_copy_db_to_sdcard="adb shell am broadcast -a com.greenmile.android.COPY_DATABASE"
+alias gm_copy_db_to_sdcard="adb shell am broadcast -a com.greenmile.android.COPY_DATABASE && adb pull sdcard/Greenmile/database/greenmile.db ~/greenmile/databases/gmda/"
 
 alias gm_server_run_sonar="mvn clean package -P remote sonar:sonar -Dsonar.login=greenmile -Dsonar.password=gr33n765u! -Dsonar.host.url=http://192.168.99.100:9000/sonar -XX:MaxPermSize=1024m"
 
@@ -221,3 +221,14 @@ alias c="cordova"
 # Babel                                                         #
 #################################################################
 alias babel="babel.js"
+
+#################################################################
+# Webpack                                                       #
+#################################################################
+alias webpack="webpack.js"
+alias webpack-dev-server="webpack-dev-server.js"
+
+#################################################################
+# Components                                                    #
+#################################################################
+alias component_build="webpack --progress --colors && open src/html/view/index.html"

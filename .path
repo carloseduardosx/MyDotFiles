@@ -65,3 +65,10 @@ path+=("$SCRIPTS")
 # Babel
 export BABEL="$HOME/Projects/javascript/components/node_modules/babel-cli/bin"
 path+=("$BABEL")
+
+# Webpack
+export WEBPACK="$HOME/Projects/javascript/components/node_modules/webpack/bin"
+path+=("$WEBPACK")
+
+export WEBPACK_DEV_SERVER="$HOME/Projects/javascript/components/node_modules/webpack-dev-server/bin"
+path+=("$WEBPACK_DEV_SERVER")
