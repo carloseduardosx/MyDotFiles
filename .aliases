@@ -232,3 +232,8 @@ alias webpack-dev-server="webpack-dev-server.js"
 # Components                                                    #
 #################################################################
 alias component_build="webpack --progress --colors && open src/html/view/index.html"
+
+#################################################################
+# Python                                                        #
+#################################################################
+alias pserver="python -m SimpleHTTPServer"

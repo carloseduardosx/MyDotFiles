@@ -33,11 +33,11 @@ function android_current_activity() {
 }
 
 function android_current_list_activity() {
-  current_activity=$(adb shell dumpsys activity activities | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} mResumedActivity | cut -d . -f 6 | cut -d ' ' -f 1)
+  current_activity=$(adb -d shell dumpsys activity activities | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} mResumedActivity | cut -d . -f 6 | cut -d ' ' -f 1)
 
   if [[ $current_activity != *"Activity" ]]
   then
-    current_activity=$(adb shell dumpsys activity activities | grep mFocusedActivity | cut -d . -f 5 | cut -d ' ' -f 1)
+    current_activity=$(adb -d shell dumpsys activity activities | grep mFocusedActivity | cut -d . -f 5 | cut -d ' ' -f 1)
   fi
 
   echo $current_activity
@@ -61,8 +61,8 @@ function android_clear_app_data() {
   package="$1"
 
   if [[ -n "$package" ]]; then
-    adb shell input keyevent 3
-    adb shell pm clear $package
+    adb -d shell input keyevent 3
+    adb -d shell pm clear $package
   else
     error "Should pass a app package name"
   fi
@@ -74,18 +74,18 @@ function android_hungry_shark_earn_diamond() {
   ((diamonds = 0))
 
   while [[ true ]]; do
-    adb shell input tap 730 830 # Zenfone 2: 746 826  -  Galaxy S5: 730 830
+    adb -d shell input tap 730 830 # Zenfone 2: 746 826  -  Galaxy S5: 730 830
     sleep 90s
 
     current_activity=$(android_current_list_activity)
     info "Current Acitivty: $current_activity"
-    if [[ "$current_activity" == "AppLovinInterstitialActivity" || "$current_activity" == "FullScreenAdActivity" || "$current_activity" == "adcolony" ]]; then
+    if [[ "$current_activity" == "AppLovinInterstitialActivity" || "$current_activity" == "FullScreenAdActivity" || "$current_activity" == "adcolony" || "$current_activity" == "USBConnection" ]]; then
 
       ((diamonds=diamonds + 2))
       success "Current diamonds earned: $diamonds => `date +"%a %-d of %b of %Y at %X"`"
 
       ## Press BackButton to close ads
-      adb shell input keyevent KEYCODE_BACK
+      adb -d shell input keyevent KEYCODE_BACK
       sleep 5s
     else
 
@@ -93,8 +93,43 @@ function android_hungry_shark_earn_diamond() {
       error "Current diamonds earned: $diamonds => `date +"%a %-d of %b of %Y at %X"`"
 
       ## Close  dialog
-      adb shell input keyevent KEYCODE_ENTER
-      adb shell input keyevent KEYCODE_ENTER
+      adb -d shell input keyevent KEYCODE_ENTER
+      adb -d shell input keyevent KEYCODE_ENTER
     fi
   done
+}
+
+function mvdrawable() {
+
+
+  mdpi="$1/drawable-mdpi"
+  hdpi="$1/drawable-hdpi"
+  xhdpi="$1/drawable-xhdpi"
+  xxhdpi="$1/drawable-xxhdpi"
+  xxxhdpi="$1/drawable-xxxhdpi"
+
+  if [[ -d "$mdpi" ]]; then
+
+    cp $mdpi/* drawable-mdpi
+  fi
+
+  if [[ -d "$hdpi" ]]; then
+
+    cp $hdpi/* drawable-hdpi
+  fi
+
+  if [[ -d "$xhdpi" ]]; then
+
+    cp $xhdpi/* drawable-xhdpi
+  fi
+
+  if [[ -d "$xxhdpi" ]]; then
+
+    cp $xxhdpi/* drawable-xxhdpi
+  fi
+
+  if [[ -d "$xxxhdpi" ]]; then
+
+    cp $xxxhdpi/* drawable-xxxhdpi
+  fi
 }
