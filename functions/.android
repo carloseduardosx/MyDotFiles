@@ -133,3 +133,8 @@ function mvdrawable() {
     cp $xxxhdpi/* drawable-xxxhdpi
   fi
 }
+
+function show_pn_by_apk() {
+
+  aapt dump badging $1 | grep package:\ name
+}
