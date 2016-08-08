@@ -77,7 +77,7 @@ function start_emulator() {
   if [[ -n $emulator ]]; then
     screen -d -m player --vm-name "$emulator"
   else
-    screen -d -m player --vm-name "c76f9518-ca45-4870-9c42-9108df91e444" # Motorola Moto X - 4.4.4 - API 19 - 720x1280
+    screen -d -m player --vm-name "063fce67-aa5a-4e72-ac56-5ea6761ba221" # Google Nexus 5 - 4.4.4 - API 19 - 1080x1920
   fi
 }
 

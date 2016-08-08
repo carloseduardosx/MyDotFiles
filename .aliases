@@ -4,6 +4,8 @@
 # Android                                                       #
 #################################################################
 
+alias android_lp="adb shell pm list packages -u";
+
 alias android_clean_log="adb logcat -c"
 
 alias android_disable_wifi="adb shell svc wifi disable"
