@@ -6,6 +6,10 @@
 
 alias android_lp="adb shell pm list packages -u";
 
+alias lp="adb shell pm list permissions -d -g"
+
+alias lf="adb logcat -v time -s FA FA-SVC"
+
 alias android_clean_log="adb logcat -c"
 
 alias android_disable_wifi="adb shell svc wifi disable"

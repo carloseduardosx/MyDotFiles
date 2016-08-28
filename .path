@@ -72,3 +72,7 @@ path+=("$WEBPACK")
 
 export WEBPACK_DEV_SERVER="$HOME/Projects/javascript/components/node_modules/webpack-dev-server/bin"
 path+=("$WEBPACK_DEV_SERVER")
+
+# FABRIC
+export FABRIC_IMC_API_KEY="6219d2add7eb790f9f6d2ba34c676f44d09c6bfe"
+export FABRIC_IMC_SECRET_KEY="94835da9dfcf55c41dd5ef548849e1b0b7d85378c60601b29ddad04418d926f9"

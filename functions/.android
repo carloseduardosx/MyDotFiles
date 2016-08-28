@@ -138,3 +138,31 @@ function show_pn_by_apk() {
 
   aapt dump badging $1 | grep package:\ name
 }
+
+function gp() {
+
+  permission="$1"
+
+  if [[ -n "$permission"]]; then
+
+    adb shell pm grant $permission
+    success "Permission granted"
+  else
+
+    error "Should pass a permission name"
+  fi
+}
+
+function rp() {
+
+  permission="$1"
+
+  if [[ -n "$permission"]]; then
+
+    adb shell pm revoke $permission
+    success "Permission revoked"
+  else
+
+    error "Should pass a permission name"
+  fi
+}
