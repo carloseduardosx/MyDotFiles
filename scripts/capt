@@ -81,16 +81,9 @@ template_js=$(cat << EOF
 var $file_name = {
 };
 
-$file_name.exec = function() {
+$file_name.exec = function(onSuccess, onError) {
 
-    var successfully = function () {
-        console.log("Success");
-    };
-
-    var failed = function ()  {
-        console.log("Failed");
-    };
-    cordova.exec(successfully, failed, "$file_name", "", []);
+    cordova.exec(onSuccess, onError, "$file_name", "", []);
 };
 
 module.exports = $file_name;

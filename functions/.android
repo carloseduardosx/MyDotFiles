@@ -99,8 +99,41 @@ function android_hungry_shark_earn_diamond() {
   done
 }
 
-function mvdrawable() {
+function mvmipmap() {
 
+  mdpi="$1/mipmap-mdpi"
+  hdpi="$1/mipmap-hdpi"
+  xhdpi="$1/mipmap-xhdpi"
+  xxhdpi="$1/mipmap-xxhdpi"
+  xxxhdpi="$1/mipmap-xxxhdpi"
+
+  if [[ -d "$mdpi" ]]; then
+
+    cp $mdpi/* mipmap-mdpi
+  fi
+
+  if [[ -d "$hdpi" ]]; then
+
+    cp $hdpi/* mipmap-hdpi
+  fi
+
+  if [[ -d "$xhdpi" ]]; then
+
+    cp $xhdpi/* mipmap-xhdpi
+  fi
+
+  if [[ -d "$xxhdpi" ]]; then
+
+    cp $xxhdpi/* mipmap-xxhdpi
+  fi
+
+  if [[ -d "$xxxhdpi" ]]; then
+
+    cp $xxxhdpi/* mipmap-xxxhdpi
+  fi
+}
+
+function mvdrawable() {
 
   mdpi="$1/drawable-mdpi"
   hdpi="$1/drawable-hdpi"
@@ -143,7 +176,7 @@ function gp() {
 
   permission="$1"
 
-  if [[ -n "$permission"]]; then
+  if [[ -n "$permission" ]]; then
 
     adb shell pm grant $permission
     success "Permission granted"
@@ -157,7 +190,7 @@ function rp() {
 
   permission="$1"
 
-  if [[ -n "$permission"]]; then
+  if [[ -n "$permission" ]]; then
 
     adb shell pm revoke $permission
     success "Permission revoked"
