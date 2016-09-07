@@ -199,3 +199,42 @@ function rp() {
     error "Should pass a permission name"
   fi
 }
+
+function ak() {
+
+  keystorePath="$1"
+  keystoreAlias="$2"
+  apkPath="$3"
+  apkNewName="$4"
+
+  if [[ -z "$keystorePath" || -z "$keystoreAlias" || -z "$apkPath" || -z "$apkNewName" ]]; then
+
+    error "Should pass:"
+    error "1- keystorePath"
+    error "2- keystoreAlias"
+    error "3- apkPath"
+    error "4- apkNewName"
+    return
+  fi
+
+  if [[ ! "$keystorePath" == /* ]]; then
+
+    error "Should pass a literal path for the keystore."
+    return
+  fi
+
+  if [[ ! "$apkPath" =~ [a-z]*.apk$ || ! "$apkNewName" =~ [a-z]*.apk$ ]]; then
+
+    error "Should pass an apk file"
+    return
+  fi
+
+  info "Assigning keystore to apk"
+  jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore "$keystorePath" "$apkPath" "$keystoreAlias"
+
+  info "Validate the apk keystore assign"
+  jarsigner -verify -verbose -certs "$apkPath"
+
+  info "Zipaligning apk"
+  zipalign -v 4 "$apkPath" "$apkNewName"
+}
