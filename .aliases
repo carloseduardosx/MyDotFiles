@@ -85,9 +85,16 @@ alias gmdjs_android_build="cordova run android --device"
 
 alias gmdjs_android_clean_build="cordova clean && cordova run android --device"
 
+alias gmdjs_copy_db="adb shell am broadcast -a com.greenmile.driver.COPY_DATABASE \
+                        && adb pull sdcard/Greenmile/database/GreenMile.realm ~/greenmile/databases/gmdjs_database/"
+
 alias gmdjs_start_main_activity="adb shell am start -n com.greenmile.driver/com.greenmile.driver.MainActivity"
 
 alias gmdjs_start="adb shell am start -n com.greenmile.driver/.MainActivity"
+
+# alias gmdjs_copy_database="adb pull /data/data/com.greenmile.driver/files/ \
+#                               /Users/carloseduardo/greenmile/databases/gmdjs_database \
+#                               && open /Users/carloseduardo/greenmile/databases/gmdjs_database/files/default.realm"
 
 
 #################################################################
