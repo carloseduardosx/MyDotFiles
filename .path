@@ -34,6 +34,10 @@ path+=("$RVM")
 export MYSQL="/usr/local/mysql/bin"
 path+=("$MYSQL")
 
+# POSTGRES
+export PSQL="/Applications/Postgres.app/Contents/Versions/9.5/bin"
+path+=("$PSQL")
+
 # Assembler - Disassembler
 export DEXDECODE="$HOME/Documents/assembler_disassembler"
 path+=("$DEXDECODE")
@@ -76,3 +80,7 @@ path+=("$WEBPACK_DEV_SERVER")
 # FABRIC
 export FABRIC_IMC_API_KEY="6219d2add7eb790f9f6d2ba34c676f44d09c6bfe"
 export FABRIC_IMC_SECRET_KEY="94835da9dfcf55c41dd5ef548849e1b0b7d85378c60601b29ddad04418d926f9"
+
+# ORACLE
+export ORACLE_HOME="$HOME/instantclient_12_1"
+path+=($ORACLE_HOME)
