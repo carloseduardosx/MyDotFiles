@@ -239,7 +239,7 @@ function ak() {
   zipalign -v 4 "$apkPath" "$apkNewName"
 }
 
-function gm_um() {
+function gmu() {
 
   update_broadcast=$(echo "adb shell am broadcast \
     -a com.greenmile.updater.UPDATE \
