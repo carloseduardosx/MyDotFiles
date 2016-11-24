@@ -92,6 +92,8 @@ alias gmdjs_start_main_activity="adb shell am start -n com.greenmile.driver/com.
 
 alias gmdjs_start="adb shell am start -n com.greenmile.driver/.MainActivity"
 
+alias bms="./gradlew clean build -PTMDB_API_KEY=eae42979f396c0f200d5d7e347efacdf"
+
 # alias gmdjs_copy_database="adb pull /data/data/com.greenmile.driver/files/ \
 #                               /Users/carloseduardo/greenmile/databases/gmdjs_database \
 #                               && open /Users/carloseduardo/greenmile/databases/gmdjs_database/files/default.realm"

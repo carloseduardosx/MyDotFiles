@@ -238,3 +238,43 @@ function ak() {
   info "Zipaligning apk"
   zipalign -v 4 "$apkPath" "$apkNewName"
 }
+
+function gm_um() {
+
+  update_broadcast=$(echo "adb shell am broadcast \
+    -a com.greenmile.updater.UPDATE \
+    -n com.greenmile.updater/.event.StartUpdateProcessEventReceiver")
+
+  if [[ $# -lt 4 ]]; then
+
+    error "Cannot update module without module information"
+
+    info "Should pass the following options in this sequence to make possible update module:"
+    info "URL"
+    info "CHECKSUM"
+    info "MODULE"
+    info "NOTIFICATION_TITLE"
+
+    return
+  fi
+
+  for i in `seq $#`
+  do
+
+    case "$i" in
+
+      1) update_broadcast+=" --es updaterURL \"$1\""
+         ;;
+      2) update_broadcast+=" --es updaterChecksum \"$2\""
+         ;;
+      3) update_broadcast+=" --es updaterModule \"$3\""
+         ;;
+      4) update_broadcast+=" --es notificationTitle \"$4\""
+         ;;
+      *) error "Only need four options for update module"
+         return
+    esac
+  done
+
+  eval "$update_broadcast"
+}
