@@ -243,7 +243,7 @@ function gmu() {
 
   update_broadcast=$(echo "adb shell am broadcast \
     -a com.greenmile.updater.UPDATE \
-    -n com.greenmile.updater/.event.StartUpdateProcessEventReceiver")
+    -n com.greenmile.updater/.event.UpdateModuleEventReceiver")
 
   if [[ $# -lt 4 ]]; then
 

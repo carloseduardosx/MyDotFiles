@@ -7,3 +7,36 @@ function cpa() {
 function cpr() {
   cordova plugin rm $1
 }
+
+function cordova_add_plugin_branch() {
+  cordova -d plugin add https://github.com/greenmilellc-org/gm-driverjs-plugins.git\#$1:/$2 --save
+}
+
+function cordova_remove_all() {
+
+  for i in `cordova plugin ls | grep '^[^ ]*' -o`; do
+    cordova plugin rm $i;
+  done
+}
+
+
+function cordova_add_all() {
+
+  plugin_list_file="$1"
+  branch="master"
+
+  if [[ -n "$2" ]]; then
+
+    branch="$2"
+  fi
+
+  while IFS='' read -r plugin || [[ -n "$plugin" ]]; do
+
+    cordova_add_plugin_branch "$branch" "$plugin"
+  done < $plugin_list_file
+}
+
+function cordova_remove_and_add_all() {
+  cordova_remove_all
+  cordova_add_all "$1" "$2"
+}
