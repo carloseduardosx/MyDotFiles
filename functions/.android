@@ -245,7 +245,7 @@ function gmu() {
     -a com.greenmile.updater.UPDATE \
     -n com.greenmile.updater/.event.UpdateModuleEventReceiver")
 
-  if [[ $# -lt 4 ]]; then
+  if [[ $# -lt 6 ]]; then
 
     error "Cannot update module without module information"
 
@@ -254,6 +254,8 @@ function gmu() {
     info "CHECKSUM"
     info "MODULE"
     info "NOTIFICATION_TITLE"
+    info "NOTIFICATION_PROGRESS_MESSAGE"
+    info "NOTIFICATION_COMPLETED_MESSAGE"
 
     return
   fi
@@ -270,6 +272,10 @@ function gmu() {
       3) update_broadcast+=" --es updaterModule \"$3\""
          ;;
       4) update_broadcast+=" --es notificationTitle \"$4\""
+         ;;
+      5) update_broadcast+=" --es downloadProgressMessage \"$5\""
+         ;;
+      6) update_broadcast+=" --es downloadCompletedMessage \"$6\""
          ;;
       *) error "Only need four options for update module"
          return

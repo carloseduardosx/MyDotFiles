@@ -19,7 +19,6 @@ function cordova_remove_all() {
   done
 }
 
-
 function cordova_add_all() {
 
   plugin_list_file="$1"
