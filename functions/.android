@@ -284,3 +284,13 @@ function gmu() {
 
   eval "$update_broadcast"
 }
+
+kill_app() {
+
+  if [[ -n "$1" ]]; then
+
+    adb shell am force-stop "$1"
+  else
+    error "Should pass package name!"
+  fi
+}
