@@ -51,7 +51,7 @@ plugin_xml=$(cat << EOF
           </feature>
       </config-file>
 
-      <source-file src="src/$package_path/$file_name.java" target-dir="src/$package_path" />
+      <source-file src="src/android/$package_path/$file_name.java" target-dir="src/$package_path" />
   </platform>
 </plugin>
 EOF
@@ -93,10 +93,10 @@ EOF
 if [[ -n "$package_path" || -n "$plugin_name" || -n "$file_name" ]]; then
 
   mkdir -p "$plugin_name/www"
-  mkdir -p "$plugin_name/src/$package_path"
+  mkdir -p "$plugin_name/src/android/$package_path"
 
   echo "$template_js" > "$plugin_name/www/$file_name.js"
-  echo "$template_java" > "$plugin_name/src/$package_path/$file_name.java"
+  echo "$template_java" > "$plugin_name/src/android/$package_path/$file_name.java"
   echo "$plugin_xml" > $plugin_name/plugin.xml
 
   success "Cordova plugin $plugin_name created!"
