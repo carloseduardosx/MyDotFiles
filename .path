@@ -92,3 +92,7 @@ path+=($GOPATH)
 # GITQL
 export DYLD_LIBRARY_PATH="$GOPATH/src/github.com/cloudson/gitql/libgit2/install/lib"
 path+=($DYLD_LIBRARY_PATH)
+
+# PEM
+export DEV_PEM="/Users/carloseduardo/greenmile/pems"
+path+=($DEV_PEM)
