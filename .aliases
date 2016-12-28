@@ -81,9 +81,9 @@ alias gm_fuck="gm_driver_build;
                gm_install_debug_apk;
                gm_start_controller_activity;"
 
-alias gmdjs_android_build="cordova run android --device"
+alias gmdjs_android_build="cordova run android --debug"
 
-alias gmdjs_android_clean_build="cordova clean && cordova run android --device"
+alias gmdjs_android_clean_build="cordova clean && cordova run android --debug"
 
 alias gmdjs_copy_db="adb shell am broadcast -a com.greenmile.driver.COPY_DATABASE \
                         && adb pull sdcard/Greenmile/database/GreenMile.realm ~/greenmile/databases/gmdjs_database/"
