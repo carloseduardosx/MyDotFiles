@@ -85,7 +85,7 @@ export FABRIC_IMC_SECRET_KEY="94835da9dfcf55c41dd5ef548849e1b0b7d85378c60601b29d
 export ORACLE_HOME="$HOME/instantclient_12_1"
 path+=($ORACLE_HOME)
 
-#GO
+# GO
 export GOPATH="/usr/local/Cellar/go/1.7.1"
 path+=($GOPATH)
 

@@ -16,7 +16,7 @@ gpull() {
 
 gpush() {
   local branch=$( git branch | sed -n 's/^\* \(.*\)/\1/p' )
-  git push origin $branch
+  git push --recurse-submodules=on-demand origin $branch
 }
 
 gcf() {

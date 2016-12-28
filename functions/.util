@@ -44,7 +44,6 @@ function show_enviroment_variables() {
   info "$(printenv | sort)"
 }
 
-
 # Get colors in manual pages
 function man() {
     env \
@@ -121,4 +120,8 @@ function jira () {
     task=$(sed "s/hotfix\///g" <<< "$name")
   fi
   chrome "https://jira.greenmile.com/browse/GM-$task"
+}
+
+function sha1() {
+  openssl sha1 $1
 }

@@ -1,10 +1,11 @@
 #!/bin/bash
 
 export FUNCTIONS=$HOME/Projects/MyDotFiles/functions
+export SECRETS=$HOME/Projects/MyDotFiles/secrets/functions
 
 . $FUNCTIONS/.android
 . $FUNCTIONS/.git_functions
-. $FUNCTIONS/.greenmile
+. $SECRETS/.greenmile
 . $FUNCTIONS/.util
 . $FUNCTIONS/.java_functions
 . $FUNCTIONS/.docker
