@@ -136,3 +136,15 @@ gh_commits() {
 
   open https://github.com/$user/$project/commits/$branch\?author\=$author
 }
+
+g_assume_unchaged() {
+  g update-index --assume-unchanged $1
+}
+
+g_no_assume_unchaged() {
+  g update-index --no-assume-unchanged $1
+}
+
+g_list_unchaged_files() {
+  git ls-files -v | grep -E "^[a-z]"
+}

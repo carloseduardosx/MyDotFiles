@@ -17,3 +17,5 @@ alias godriver5js="cd /Users/carloseduardo/Projects/greenmile/gm-driver-5/gm-dri
 alias gouniversity="cd /Users/carloseduardo/Projects/university"
 alias goupdater="cd /Users/carloseduardo/Projects/greenmile/gm-mobile-updater"
 alias gosecrets="cd /Users/carloseduardo/Projects/MyDotFiles/secrets"
+alias goupdater="cd /Users/carloseduardo/Projects/greenmile/gm-mobile-updater"
+alias goreactcomponents="cd /Users/carloseduardo/Projects/greenmile/gm-react-components"

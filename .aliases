@@ -90,6 +90,8 @@ alias gmdjs_copy_db="adb shell am broadcast -a com.greenmile.driver.COPY_DATABAS
 
 alias gmdjs_start_main_activity="adb shell am start -n com.greenmile.driver/com.greenmile.driver.MainActivity"
 
+alias gmdmerch_start_main_activity="adb shell am start -n com.greenmile.merch/com.greenmile.merch.MainActivity"
+
 alias gmdjs_start="adb shell am start -n com.greenmile.driver/.MainActivity"
 
 alias bms="./gradlew clean build -PTMDB_API_KEY=eae42979f396c0f200d5d7e347efacdf"
