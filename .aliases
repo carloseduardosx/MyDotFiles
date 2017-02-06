@@ -254,3 +254,8 @@ alias component_build="webpack --progress --colors && open src/html/view/index.h
 # Python                                                        #
 #################################################################
 alias pserver="python -m SimpleHTTPServer"
+
+#################################################################
+# Grep updated
+#################################################################
+alias ggrep="/usr/local/Cellar/grep/2.27/bin/grep"
