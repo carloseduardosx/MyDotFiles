@@ -28,8 +28,12 @@ alias android_list_all_packages="adb -d shell 'pm list packages -f' | sed -e 's/
 
 
 #################################################################
-#Greenmile                                                      #
+# Greenmile                                                     #
 #################################################################
+
+alias gmdjs_test="npm run update:grc && npm run prep:deps && cross-env CI=true react-scripts test --testPathPattern=\"test/app/containers/pages/AddStopPage.test.jsx\""
+
+alias gmdjs_igrc_local="npm uninstall --save gm-react-components && npm i --save /Users/carloseduardo/Projects/greenmile/gm-react-components"
 
 alias gm_pidcat="pidcat com.greenmile.android"
 
@@ -174,6 +178,7 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 alias spotlight_off="sudo mdutil -a -i off"
 alias spotlight_on="sudo mdutil -a -i on"
+alias uninstall_java="sudo rm -fr /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin && sudo rm -fr /Library/PreferencePanes/JavaControlPanel.prefPane && sudo rm -fr ~/Library/Application\ Support/Java"
 
 #################################################################
 # Util                                                          #
@@ -233,11 +238,11 @@ alias show_container_statistics="docker stats `docker ps | tail -n+2 | awk '{ pr
 #################################################################
 alias c="cordova"
 
-
 #################################################################
 # Babel                                                         #
 #################################################################
 alias babel="babel.js"
+
 
 #################################################################
 # Webpack                                                       #
@@ -245,10 +250,12 @@ alias babel="babel.js"
 alias webpack="webpack.js"
 alias webpack-dev-server="webpack-dev-server.js"
 
+
 #################################################################
 # Components                                                    #
 #################################################################
 alias component_build="webpack --progress --colors && open src/html/view/index.html"
+
 
 #################################################################
 # Python                                                        #
