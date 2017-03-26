@@ -60,5 +60,6 @@ To configure new enviroment after format your OS X just go to `config_environmen
 - **GitHub Desktop**
 - **Photoshop**
 - **Sketch**
+- **Slack**
 - **ZSH**
 - **Oh-My-ZSH**

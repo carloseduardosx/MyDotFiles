@@ -155,6 +155,9 @@ GREEN='\033[00;32m'
 # Installing Sketch
 . sketch.sh
 
+# Installing Slack
+. slack.sh
+
 # Installing zsh
 . zsh.sh
 
