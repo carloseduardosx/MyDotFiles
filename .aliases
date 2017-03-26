@@ -229,8 +229,6 @@ alias dc="docker-compose"
 alias dm="docker-machine"
 alias dps="docker ps"
 alias dmls="docker-machine ls"
-alias show_container_statistics="docker stats `docker ps | tail -n+2 | awk '{ print $NF }'`"
-
 
 #################################################################
 # Cordova                                                       #

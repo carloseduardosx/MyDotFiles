@@ -6,6 +6,10 @@ function addGoAlias() {
   source $HOME/.zshrc
 }
 
+function docker_stats() {
+  docker stats `docker ps | tail -n+2 | awk '{ print $NF }'`
+}
+
 function cp_file_content() {
   local file="$1"
   cat `pwd`/file | pbcopy
