@@ -1,4 +1,4 @@
-export ZSH="/Users/carloseduardo/.oh-my-zsh"
+export ZSH="/Users/carloseduardosx/.oh-my-zsh"
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
 
 ZSH_THEME="robbyrussell"
@@ -6,7 +6,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 # Path
-. $HOME/MyDotFiles/.path
+. $HOME/Projects/MyDotFiles/.path
 
 # ZSH
 . $ZSH/oh-my-zsh.sh
@@ -15,14 +15,14 @@ plugins=(git)
 . $Z/z.sh
 
 # Alias
-. $HOME/MyDotFiles/.aliases
-. $HOME/MyDotFiles/.goaliases
+. $HOME/Projects/MyDotFiles/.aliases
+. $HOME/Projects/MyDotFiles/.goaliases
 
 # Functions
-. $HOME/MyDotFiles/functions/source.bash
+. $HOME/Projects/MyDotFiles/functions/source.bash
 
 # Logger
-. $HOME/MyDotFiles/.logger
+. $HOME/Projects/MyDotFiles/.logger
 
 # Colors
-. $HOME/MyDotFiles/.color-constants
+. $HOME/Projects/MyDotFiles/.color-constants

@@ -1,0 +1,162 @@
+#!/bin/bash
+
+# Global Variables
+END=$'\e[0m'
+CYAN='\033[00;36m'
+GREEN='\033[00;32m'
+
+# Functions
+. functions.sh
+
+# Installing Homebrew
+. homebrew.sh
+
+# Installing Homebrew cask
+. homebrew_cask.sh
+
+# Installing Z
+. z.sh
+
+# Installing wget
+. wget.sh
+
+# Installing git
+. git.sh
+
+# Installing grep
+. grep.sh
+
+# Installing ack
+. ack.sh
+
+# Installing unrar
+. unrar.sh
+
+# Installing vim
+. vim.sh
+
+# Installing nvim
+. nvim.sh
+
+# Installing Docker
+. docker.sh
+
+# Installing java
+. java.sh
+
+# Installing Maven
+. maven.sh
+
+# Installing Gradle
+. gradle.sh
+
+# Installing Kotlin
+. kotlin.sh
+
+# Installing RVM with Ruby
+. rvm.sh
+
+# Installing NVM
+. nvm.sh
+
+# Installing Stack - Haskell
+. stack.sh
+
+# Installing GO
+. go.sh
+
+# Installing GitQL
+. gitql.sh
+
+# Installing MySQL
+. mysql.sh
+
+# Installing PostgreSQL
+. postgresql.sh
+
+# Installing Intellij-IDEA
+. intellij.sh
+
+# Installing CLion
+. clion.sh
+
+# Installing DataGrip
+. datagrip.sh
+
+# Installing WebStorm
+. webstorm.sh
+
+# Installing AppCode
+. appcode.sh
+
+# Installing Android-Studio
+. android_studio.sh
+
+# Installing iTerm2
+. iterm.sh
+
+# Installing Alfred
+. alfred.sh
+
+# Installing AppCleaner
+. appcleaner.sh
+
+# Installing Boostnote
+. boostnote.sh
+
+# Installing Evernote
+. evernote.sh
+
+# Installing Google Chrome
+. google_chrome.sh
+
+# Installing Google Drive
+. google_drive.sh
+
+# Installing Skype
+. skype.sh
+
+# Installing 1Password
+. 1password.sh
+
+# Installing Itau
+. itau.sh
+
+# Installing Microsoft-Office
+. microsoft_office.sh
+
+# Installing Opera
+. opera.sh
+
+# Installing Spotify
+. spotify.sh
+
+# Installing Telegram-Desktop
+. telegram_desktop.sh
+
+# Installing Android File Transfer
+. android_file_transfer.sh
+
+# Installing Tunnelblick
+. tunnelblick.sh
+
+# Installing Virtualbox
+. virtualbox.sh
+
+# Installing Genymotion
+. genymotion.sh
+
+# Installing GitHub-Desktop
+. github_desktop.sh
+
+# Installing Adobe Photoshop
+. photoshop.sh
+
+# Installing Sketch
+. sketch.sh
+
+# Installing zsh
+. zsh.sh
+
+# Installing oh-my-zsh
+. oh_my_zsh.sh

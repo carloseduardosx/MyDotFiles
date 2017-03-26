@@ -19,7 +19,7 @@ gpush() {
   git push --recurse-submodules=on-demand origin $branch
 }
 
-gcf() {
+g_cf() {
 
   if [[ "$2" == "js" ]]; then
     git checkout feature/GMDJS-$1
@@ -28,22 +28,13 @@ gcf() {
   fi
 }
 
-gch() {
+g_ch() {
 
   if [[ "$2" == "js" ]]; then
     git checkout hotfix/GMDJS-$1
   else
     git checkout hotfix/GM-$1
   fi
-}
-
-gc() {
-  local message
-
-  info "Type message do you want to add in yout commit:"
-  read message
-
-  git commit -m "$message"
 }
 
 gsync() {

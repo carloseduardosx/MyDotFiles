@@ -4,27 +4,22 @@
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
 
-
 # Android
-export ANDROID_HOME="/Users/carloseduardo/Library/Android/sdk"
+export ANDROID_HOME="/Users/carloseduardosx/Library/Android/sdk"
 export ANDROID_TOOLS="$ANDROID_HOME/tools"
 export ANDROID_BUILD_TOOLS="$ANDROID_HOME/build-tools/23.0.2"
 export ANDROID_PLATFORM_TOOLS="$ANDROID_HOME/platform-tools"
 path+=("$ANDROID_HOME" "$ANDROID_TOOLS" "$ANDROID_BUILD_TOOLS" "$ANDROID_PLATFORM_TOOLS")
 
 # Java
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home" 
 export JAVA7_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home"
-export JAVA8_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home"
+export JAVA8_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home"
 path+=("$JAVA_HOME" "$JAVA7_HOME" "$JAVA8_HOME")
 
 # Kotlin
 export KOTLIN_HOME="/Users/carloseduardo/compiler/kotlinc/bin"
 path+=("$KOTLIN_HOME")
-
-# Code Inspector
-export INFER="/Users/carloseduardo/Documents/Projetos/infer-osx-v0.3.0/infer/bin"
-path+=("$INFER")
 
 # Ruby
 export RVM="$HOME/.rvm/bin"
@@ -38,18 +33,6 @@ path+=("$MYSQL")
 export PSQL="/Applications/Postgres.app/Contents/Versions/9.5/bin"
 path+=("$PSQL")
 
-# Assembler - Disassembler
-export DEXDECODE="$HOME/Documents/assembler_disassembler"
-path+=("$DEXDECODE")
-
-# CMake
-export CMAKE="/Applications/CMake.app/Contents/bin"
-path+=("$CMAKE")
-
-# MacPorts
-export MACPORTS="/opt/local/bin"
-path+=("$MACPORTS")
-
 # Z
 export Z="/usr/local/etc/profile.d"
 path+=("$Z")
@@ -58,41 +41,33 @@ path+=("$Z")
 export PLAYER="/Applications/Genymotion.app/Contents/MacOS/player.app/Contents/MacOS/"
 path+=("$PLAYER")
 
-# Sonar
-export SONAR="$HOME/sonarqube"
-path+=("$SONAR")
-
 # Scripts
 export SCRIPTS="$HOME/Projects/MyDotFiles/scripts"
 path+=("$SCRIPTS")
 
-# Babel
-export BABEL="$HOME/Projects/javascript/components/node_modules/babel-cli/bin"
-path+=("$BABEL")
-
-# Webpack
-export WEBPACK="$HOME/Projects/javascript/components/node_modules/webpack/bin"
-path+=("$WEBPACK")
-
-export WEBPACK_DEV_SERVER="$HOME/Projects/javascript/components/node_modules/webpack-dev-server/bin"
-path+=("$WEBPACK_DEV_SERVER")
-
-# FABRIC
-export FABRIC_IMC_API_KEY="6219d2add7eb790f9f6d2ba34c676f44d09c6bfe"
-export FABRIC_IMC_SECRET_KEY="94835da9dfcf55c41dd5ef548849e1b0b7d85378c60601b29ddad04418d926f9"
-
-# ORACLE
-export ORACLE_HOME="$HOME/instantclient_12_1"
-path+=($ORACLE_HOME)
-
 # GO
-export GOPATH="/usr/local/Cellar/go/1.7.1"
-path+=($GOPATH)
+export GOPATH="$HOME/Go"
+export GOROOT="/usr/local/Cellar/go/1.8/libexec"
+path+=($GOPATH $GOROOT)
 
 # GITQL
 export DYLD_LIBRARY_PATH="$GOPATH/src/github.com/cloudson/gitql/libgit2/install/lib"
 path+=($DYLD_LIBRARY_PATH)
 
 # PEM
-export DEV_PEM="/Users/carloseduardo/greenmile/pems"
+export DEV_PEM="$HOME/Documents/greenmile/pems"
 path+=($DEV_PEM)
+
+# HASKELL
+export GHC="$HOME/.stack/programs/x86_64-osx/ghc-8.0.2/bin"
+export LOCAL_BIN="$HOME/.local/bin"
+path+=($GHC $LOCAL_BIN)
+
+# ZSH_COMPLETIONS
+export ZSH_COMPLETIONS="/usr/local/share/zsh-completions"
+path+=($ZSH_COMPLETIONS)
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+path+=($NVM_DIR)

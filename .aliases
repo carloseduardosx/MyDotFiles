@@ -31,7 +31,7 @@ alias android_list_all_packages="adb -d shell 'pm list packages -f' | sed -e 's/
 # Greenmile                                                     #
 #################################################################
 
-alias gmdjs_test="npm run update:grc && npm run prep:deps && cross-env CI=true react-scripts test --testPathPattern=\"test/app/containers/pages/AddStopPage.test.jsx\""
+alias gmdjs_test="npm run prep:deps && cross-env CI=true react-scripts test --testPathPattern=\"test/app/containers/pages/FinancialSummaryPage.test.jsx\""
 
 alias gmdjs_igrc_local="npm uninstall --save gm-react-components && npm i --save /Users/carloseduardo/Projects/greenmile/gm-react-components"
 
@@ -85,9 +85,11 @@ alias gm_fuck="gm_driver_build;
                gm_install_debug_apk;
                gm_start_controller_activity;"
 
-alias gmdjs_android_build="cordova run android --debug"
+alias gmdjs_android_build="npm run build:android \
+                           && adb install -r platforms/android/build/outputs/apk/android-x86-debug.apk \
+                           && adb shell am start -n com.greenmile.driver/com.greenmile.driver.MainActivity"
 
-alias gmdjs_android_clean_build="cordova clean && cordova run android --debug"
+alias gmdjs_android_clean_build="cordova clean && npm run build:android"
 
 alias gmdjs_copy_db="adb shell am broadcast -a com.greenmile.driver.COPY_DATABASE \
                         && adb pull sdcard/Greenmile/database/GreenMile.realm ~/greenmile/databases/gmdjs_database/"
@@ -227,9 +229,6 @@ alias dc="docker-compose"
 alias dm="docker-machine"
 alias dps="docker ps"
 alias dmls="docker-machine ls"
-alias lvmi="boot2docker ip"
-alias up_linux_vm="boot2docker up; eval \"$(boot2docker shellinit)\""
-alias down_linux_vm="boot2docker down"
 alias show_container_statistics="docker stats `docker ps | tail -n+2 | awk '{ print $NF }'`"
 
 
@@ -243,6 +242,10 @@ alias c="cordova"
 #################################################################
 alias babel="babel.js"
 
+#################################################################
+# VIM                                                           #
+#################################################################
+alias vim="/usr/local/bin/vim"
 
 #################################################################
 # Webpack                                                       #
