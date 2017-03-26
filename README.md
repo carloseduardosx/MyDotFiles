@@ -2,7 +2,7 @@
 
 ### Configuring Environment
 
-To configure new enviroment after format your OS X just go to config_environment folder and execute the following script:
+To configure new enviroment after format your OS X just go to `config_environment` folder and execute the following script:
 
 ```Shell
 ./installer
