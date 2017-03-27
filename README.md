@@ -24,6 +24,8 @@ To configure new enviroment after format your OS X just go to `config_environmen
 - **Java**
 - **Maven**
 - **Gradle**
+- **Python**
+- **pip**
 - **Kotlin**
 - **RVM**
 - **NVM**

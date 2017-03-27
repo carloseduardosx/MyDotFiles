@@ -7,18 +7,19 @@ export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
 # Android
 export ANDROID_HOME="/Users/carloseduardosx/Library/Android/sdk"
 export ANDROID_TOOLS="$ANDROID_HOME/tools"
+export ANDROID_TOOLS_BIN="$ANDROID_HOME/tools/bin"
 export ANDROID_BUILD_TOOLS="$ANDROID_HOME/build-tools/23.0.2"
 export ANDROID_PLATFORM_TOOLS="$ANDROID_HOME/platform-tools"
-path+=("$ANDROID_HOME" "$ANDROID_TOOLS" "$ANDROID_BUILD_TOOLS" "$ANDROID_PLATFORM_TOOLS")
+path+=("$ANDROID_HOME" "$ANDROID_TOOLS" "$ANDROID_BUILD_TOOLS" "$ANDROID_TOOLS_BIN" "$ANDROID_PLATFORM_TOOLS")
 
 # Java
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home" 
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home" 
 export JAVA7_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home"
-export JAVA8_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home"
+export JAVA8_HOME="$JAVA_HOME"
 path+=("$JAVA_HOME" "$JAVA7_HOME" "$JAVA8_HOME")
 
 # Kotlin
-export KOTLIN_HOME="/Users/carloseduardo/compiler/kotlinc/bin"
+export KOTLIN_HOME="/Users/carloseduardosx/compiler/kotlinc/bin"
 path+=("$KOTLIN_HOME")
 
 # Ruby

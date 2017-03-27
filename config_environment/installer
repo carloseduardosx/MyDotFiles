@@ -50,6 +50,9 @@ GREEN='\033[00;32m'
 # Installing Gradle
 . gradle.sh
 
+# Installing Python with pip
+. python.sh
+
 # Installing Kotlin
 . kotlin.sh
 
