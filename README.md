@@ -41,6 +41,7 @@ To configure new enviroment after format your OS X just go to `config_environmen
 - **WebStorm**
 - **AppCode**
 - **Android Studio**
+- **pidcat**
 - **iTerm2**
 - **Alfred**
 - **AppCleaner**

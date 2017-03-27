@@ -95,6 +95,9 @@ GREEN='\033[00;32m'
 # Installing Android-Studio
 . android_studio.sh
 
+# Installing pidcat
+. pidcat.sh
+
 # Installing iTerm2
 . iterm.sh
 
