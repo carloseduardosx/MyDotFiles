@@ -158,6 +158,9 @@ GREEN='\033[00;32m'
 # Installing Slack
 . slack.sh
 
+# Installing KAP
+. kap.sh
+
 # Installing zsh
 . zsh.sh
 
