@@ -1,0 +1,52 @@
+#!/bin/bash
+
+function cri() {
+    name="$1"
+
+    # iOS 7
+    mv "Icon-40.png" "${name}-40.png"
+    mv "Icon-40@2x.png" "${name}-40@2x.png"
+    mv "Icon-40@3x.png" "${name}-40@3x.png"
+    mv "Icon-60.png" "${name}-60.png"
+    mv "Icon-60@2x.png" "${name}-60@2x.png"
+    mv "Icon-72.png" "${name}-72.png"
+    mv "Icon-72@2x.png" "${name}-72@2x.png"
+    mv "Icon-76.png" "${name}-76.png"
+    mv "Icon-76@2x.png" "${name}-76@2x.png"
+    mv "Icon-Small-40.png" "${name}-Small-40.png"
+    mv "Icon-Small-40@2x.png" "${name}-Small-40@2x.png"
+    mv "Icon-Small-50.png" "${name}-Small-50.png"
+    mv "Icon-Small-50@2x.png" "${name}-Small-50@2x.png"
+    mv "Icon-Small.png" "${name}-Small.png"
+    mv "Icon-Small@2x.png" "${name}-Small@2x.png"
+    mv "Icon.png" "${name}.png"
+    mv "Icon@2x.png" "${name}@2x.png"
+    mv "Icon@3x.png" "${name}@3x.png"
+    rm "iTunesArtwork.png"
+    rm "iTunesArtwork@2x.png"
+    mv "Icon-16.png" "${name}-16.png"
+    mv "Icon-24.png" "${name}-24.png"
+    mv "Icon-32.png" "${name}-32.png"
+    mv "Icon-64.png" "${name}-64.png"
+    mv "Icon-120.png" "${name}-120.png"
+    mv "Icon-152.png" "${name}-152.png"
+    mv "Icon-167.png" "${name}-167.png"
+    mv "Icon-180.png" "${name}-180.png"
+
+    # iOS 8
+    mv "Icon-60@3x.png" "${name}-60@3x.png"
+    mv "Icon-Small@3x.png" "${name}-Small@3x.png"
+    mv "Icon-Small-40@3x.png" "${name}-Small-40@3x.png"
+
+    # Android
+    mv "Icon-ldpi.png" "${name}-ldpi.png"
+    mv "Icon-mdpi.png" "${name}-mdpi.png"
+    mv "Icon-hdpi.png" "${name}-hdpi.png"
+    mv "Icon-xhdpi.png" "${name}-xhdpi.png"
+    mv "Icon-xxhdpi.png" "${name}-xxhdpi.png"
+    mv "Icon-xxxhdpi.png" "${name}-xxxhdpi.png"
+
+    # Other
+    rm "Icon-Amazon.png"
+    rm "upload.png"
+}

@@ -11,3 +11,4 @@ export SECRETS=$HOME/Projects/MyDotFiles/secrets/functions
 . $FUNCTIONS/.docker
 . $FUNCTIONS/.cordova
 . $FUNCTIONS/.babel
+. $FUNCTIONS/.corona
