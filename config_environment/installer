@@ -175,3 +175,7 @@ GREEN='\033[00;32m'
 
 # Installing oh-my-zsh
 . oh_my_zsh.sh
+
+# Installing zsh-completions
+. zsh-completions.sh
+
