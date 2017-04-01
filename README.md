@@ -65,5 +65,6 @@ To configure new enviroment after format your OS X just go to `config_environmen
 - **Sketch**
 - **Slack**
 - **KAP**
+- **Postman**
 - **ZSH**
 - **Oh-My-ZSH**

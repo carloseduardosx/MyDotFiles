@@ -167,6 +167,9 @@ GREEN='\033[00;32m'
 # Installing KAP
 . kap.sh
 
+# Installing Postman
+. postman.sh
+
 # Installing zsh
 . zsh.sh
 
