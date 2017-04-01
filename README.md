@@ -68,3 +68,4 @@ To configure new enviroment after format your OS X just go to `config_environmen
 - **Postman**
 - **ZSH**
 - **Oh-My-ZSH**
+- **ZSH Completions**
