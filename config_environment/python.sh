@@ -1,1 +1,1 @@
-installer "python" "brew install python --with-default-names && pip install -U pip" true
+installer "python" "brew install python --with-default-names && brew install python3" true

@@ -1,1 +1,1 @@
-installer "java" "brew cask install java" true
+installer "java" 'echo ${password} | brew cask install java' true

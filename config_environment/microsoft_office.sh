@@ -1,1 +1,1 @@
-installer "microsoft-office" "brew cask install microsoft-office"
+installer "microsoft-office" 'echo ${password} | brew cask install microsoft-office'
