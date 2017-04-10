@@ -4,9 +4,14 @@
 END=$'\e[0m'
 CYAN='\033[00;36m'
 GREEN='\033[00;32m'
+password=""
 
 # Functions
 . functions.sh
+
+# TODO automatically input password when asked
+info "Type your password"
+read password
 
 # Installing Homebrew
 . homebrew.sh
