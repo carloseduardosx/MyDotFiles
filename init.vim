@@ -2,6 +2,9 @@ set runtimepath+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim
 let s:bundle_dir = expand('~/.config/nvim/bundle')
 let s:plugin_dir = s:bundle_dir . '/repos/github.com'
 
+" ================ NERDTree fonts ========================
+set encoding=utf8
+
 if dein#load_state(s:bundle_dir)
     call dein#begin(s:bundle_dir)
 
@@ -18,6 +21,7 @@ if dein#load_state(s:bundle_dir)
     call dein#add('tpope/vim-repeat')
     call dein#add('tpope/vim-fugitive')
     call dein#add('scrooloose/nerdtree')
+    call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
     call dein#add('airblade/vim-gitgutter')
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
@@ -31,6 +35,7 @@ if dein#load_state(s:bundle_dir)
     call dein#add('dyng/ctrlsf.vim')
     call dein#add('ctrlpvim/ctrlp.vim')
     call dein#add('junegunn/goyo.vim')
+    call dein#add('ryanoasis/vim-devicons')
 
     call dein#end()
     call dein#save_state()
@@ -117,6 +122,9 @@ autocmd vimrc InsertLeave * :set cul                                            
 autocmd vimrc FileType html,javascript,coffee,cucumber setlocal sw=2 sts=2 ts=2 "Set 2 indent for html
 autocmd vimrc FileType php,javascript setlocal cc=80                            "Set right margin only for php and js
 autocmd vimrc VimEnter,BufNewFile,BufReadPost * call s:LoadLocalVimrc()         "Load per project vimrc (Used for custom test mappings, etc.)
+autocmd StdinReadPre * let s:std_in=1                                           "Open NERDTree when vim is opened without any specified file
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif     "Open NERDTree when vim is opened without any specified file
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "Close vim if NERDTree is the only window open
 
 autocmd vimrc VimEnter * set vb t_vb=
 
@@ -362,4 +370,3 @@ let g:goyo_width = 100                                                          
 let g:goyo_height = 100                                                         "100% height
 
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '                                "Set up spacing for sidebar icons
-
