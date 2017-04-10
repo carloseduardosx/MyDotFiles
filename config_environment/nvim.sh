@@ -7,8 +7,8 @@ mkdir -p ~/.config/nvim/bundle
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > dein_installer.sh \
 && sh ./dein_installer.sh ~/.config/nvim/bundle \
 && cd .. \
-&& ln -s $(pwd)/init.vim ~/.config/nvim/init.vim \
-&& ln -s $(pwd)/tmux.conf ~/.tmux.conf \
+&& ln -sf $(pwd)/init.vim ~/.config/nvim/init.vim \
+&& ln -sf $(pwd)/tmux.conf ~/.tmux.conf \
 && rm config_environment/dein_installer.sh \
 && nvim -c 'call dein#install() | exit'
 

@@ -3,14 +3,12 @@ let s:bundle_dir = expand('~/.config/nvim/bundle')
 let s:plugin_dir = s:bundle_dir . '/repos/github.com'
 
 " ================ NERDTree fonts ========================
-set encoding=utf8
 
 if dein#load_state(s:bundle_dir)
     call dein#begin(s:bundle_dir)
 
     call dein#add(s:plugin_dir . '/Shougo/dein.vim')
     call dein#add('christoomey/vim-tmux-navigator')
-    call dein#add('ryanoasis/vim-devicons')
     call dein#add('w0rp/ale')
     call dein#add('nelstrom/vim-visual-star-search')
     call dein#add('mileszs/ack.vim')
@@ -71,6 +69,7 @@ set mouse=a                                                                     
 set showmatch                                                                   "Highlight matching bracket
 set nostartofline                                                               "Jump to first non-blank character
 set timeoutlen=1000 ttimeoutlen=200                                             "Reduce Command timeout for faster escape and O
+set encoding=utf8                                                               "Set utf-8 encoding
 set fileencoding=utf-8                                                          "Set utf-8 encoding on write
 set wrap                                                                        "Enable word wrap
 set linebreak                                                                   "Wrap lines at convenient points
@@ -215,10 +214,10 @@ nnoremap H 0
 nnoremap L $
 
 " Comment map
-nmap <Leader>c gcc
+nnoremap <Leader>c gcc
 
 " Line comment command
-xmap <Leader>c gc
+xnoremap <Leader>c gc
 
 " Map save to Ctrl + S
 map <c-s> :w<CR>
