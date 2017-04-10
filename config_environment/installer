@@ -76,6 +76,9 @@ read password
 # Installing GitQL
 . gitql.sh
 
+# Installing gtypist
+. gtypist.sh
+
 # Installing MySQL
 . mysql.sh
 

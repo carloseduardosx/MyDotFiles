@@ -33,7 +33,7 @@ function count_files_recursively() {
 
   local directory=$1
 
-  if [[ -d $directory ]] then
+  if [[ -d $directory ]]; then
 
     file_number="$(find $directory -type f -print | wc -l)"
     info "$file_number files in this directory"
