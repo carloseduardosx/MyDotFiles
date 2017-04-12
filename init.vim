@@ -196,18 +196,32 @@ endfunction
 
 " ================ Custom mappings ========================
 
+" Git
+nnoremap gst :Gstatus<CR>
+nnoremap gdiff :Gdiff<CR>
+nnoremap gb :Gbrowse<CR>
+vnoremap gb :Gbrowse<CR>
+
 " Update init.vim
-nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <Leader>sv :source $MYVIMRC<cr>
+nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <Leader>sv :source $MYVIMRC<CR>
 
 " Move line down/up
 nnoremap <Leader>[ ddp
 nnoremap <Leader>] ddkP
 
 " Wrap word with single/double quote
-nnoremap <Leader>" viw<esc>a"<esc>bi"<esc>lel
-nnoremap <Leader>' viw<esc>a'<esc>bi'<esc>lel
-vnoremap <Leader>` di""<esc>Pl
+nnoremap <Leader>" viw<Esc>a"<Esc>bi"<Esc>lel
+nnoremap <Leader>' viw<Esc>a'<Esc>bi'<Esc>lel
+vnoremap <Leader>` di""<Esc>Pl
+
+" Remove search highlight
+nnoremap <Leader>rh :noh<CR>
+vnoremap <Leader>rh :noh<CR>
+
+" Save and quit
+nnoremap <Leader>qq :q<CR>
+nnoremap <Leader>wq :wq<CR>
 
 " Moving around
 nnoremap H 0
@@ -220,8 +234,8 @@ nnoremap <Leader>c gcc
 xnoremap <Leader>c gc
 
 " Map save to Ctrl + S
-map <c-s> :w<CR>
-imap <c-s> <C-o>:w<CR>
+map <C-s> :w<CR>
+imap <C-s> <C-o>:w<CR>
 
 " Also save with ,w
 nnoremap <Leader>w :w<CR>
@@ -229,10 +243,10 @@ nmap <Leader>k <Plug>(ale_previous_wrap)
 nmap <Leader>j <Plug>(ale_next_wrap)
 
 " Easier window navigation
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Uppercase
 nnoremap <c-u> viwU<esc>
