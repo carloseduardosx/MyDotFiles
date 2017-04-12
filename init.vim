@@ -28,6 +28,7 @@ if dein#load_state(s:bundle_dir)
     call dein#add('sheerun/vim-polyglot')
     call dein#add('kristijanhusak/vim-hybrid-material')
     call dein#add('Shougo/deoplete.nvim')
+    call dein#add('zchee/deoplete-clang')
     call dein#add('Shougo/neosnippet')
     call dein#add('honza/vim-snippets')
     call dein#add('dyng/ctrlsf.vim')
@@ -369,6 +370,9 @@ let g:neosnippet#snippets_directory = [
             \ '~/.config/nvim/snippets']
 
 let g:deoplete#enable_at_startup = 1                                            "Enable deoplete autocompletion
+let g:deoplete#enable_smart_case = 1                                            "Enable deoplete smartcase autocompletion
+let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/4.0.0/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header = '/usr/bin/clang'
 
 let g:ackhighlight = 1                                                          "Highlight current search
 
