@@ -124,14 +124,6 @@ alias rb_uninstall="adb uninstall com.carloseduardo.renewer.books"
 
 alias list_vms="VBoxManage list vms"
 
-
-#################################################################
-# Clojure                                                       #
-#################################################################
-
-alias lein="/Users/carloseduardo/MyDotFiles/scripts/lein.sh"
-
-
 #################################################################
 # Git                                                           #
 #################################################################

@@ -10,5 +10,8 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >
 && ln -sf $(pwd)/init.vim ~/.config/nvim/init.vim \
 && ln -sf $(pwd)/tmux.conf ~/.tmux.conf \
 && rm config_environment/dein_installer.sh \
-&& nvim -c 'call dein#install() | exit'
-
+&& nvim -c 'call dein#install() | exit' \
+&& brew install llvm --with-clang \
+&& wget -P /usr/local/bin/ https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein \
+&& lein \
+&& echo ':plugins [[cider/cider-nrepl "0.14.0"]]' > ~/.lein/profiles.clj
