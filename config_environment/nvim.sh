@@ -15,4 +15,6 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >
 && wget -P /usr/local/bin/ https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein \
 && chmod a+x /usr/local/bin/lein \
 && lein \
-&& echo ':plugins [[cider/cider-nrepl "0.14.0"]]' > ~/.lein/profiles.clj
+&& echo ':plugins [[cider/cider-nrepl "0.14.0"]]' > ~/.lein/profiles.clj \
+&& go get -u github.com/nsf/gocode \
+&& mkdir ~/.tern-project
