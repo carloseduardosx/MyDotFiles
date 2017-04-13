@@ -25,17 +25,20 @@ if dein#load_state(s:bundle_dir)
     call dein#add('gregsexton/MatchTag')
     call dein#add('sheerun/vim-polyglot')
     call dein#add('kristijanhusak/vim-hybrid-material')
+    call dein#add('Shougo/echodoc.vim')
     call dein#add('Shougo/deoplete.nvim')
-    call dein#add('zchee/deoplete-clang')
-    call dein#add('clojure-vim/async-clj-omni')
-    call dein#add('slashmili/alchemist.vim')
-    call dein#add('callmekohei/deoplete-fsharp')
-    call dein#add('zchee/deoplete-go', {'build': 'make'})
-    call dein#add('carlitux/deoplete-ternjs', {'build': 'npm install -g tern'})
-    call dein#add('zchee/deoplete-jedi')
     call dein#add('Shougo/neco-vim')
     call dein#add('Shougo/neco-syntax')
     call dein#add('Shougo/neosnippet')
+    call dein#add('zchee/deoplete-go', {'build': 'make'})
+    call dein#add('zchee/deoplete-clang')
+    call dein#add('zchee/deoplete-jedi')
+    call dein#add('zchee/deoplete-zsh')
+    call dein#add('clojure-vim/async-clj-omni')
+    call dein#add('slashmili/alchemist.vim')
+    call dein#add('callmekohei/deoplete-fsharp')
+    call dein#add('carlitux/deoplete-ternjs', {'build': 'npm install -g tern'})
+    call dein#add('autozimu/LanguageClient-neovim', {'build': 'UpdateRemotePlugins'})
     call dein#add('honza/vim-snippets')
     call dein#add('dyng/ctrlsf.vim')
     call dein#add('ctrlpvim/ctrlp.vim')
@@ -398,6 +401,16 @@ let g:tern#filetypes = [
                 \ 'vue',
                 \ '...'
                 \ ]
+
+"LanguageClient asynchronous multi language support
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['cargo', 'run', '--release', '--manifest-path=/opt/rls/Cargo.toml'],
+    \ 'javascript': ['/opt/javascript-typescript-langserver/lib/language-server-stdio.js'],
+    \ }
+
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <Leader>r :call LanguageClient_textDocument_rename()<CR>
 
 let g:ackhighlight = 1                                                          "Highlight current search
 
