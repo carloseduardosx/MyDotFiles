@@ -17,4 +17,6 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >
 && lein \
 && echo ':plugins [[cider/cider-nrepl "0.14.0"]]' > ~/.lein/profiles.clj \
 && go get -u github.com/nsf/gocode \
-&& mkdir ~/.tern-project
+&& mkdir ~/.tern-project \
+&& pip install jedi \
+&& pip3 install jedi
