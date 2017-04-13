@@ -2,8 +2,6 @@ set runtimepath+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim
 let s:bundle_dir = expand('~/.config/nvim/bundle')
 let s:plugin_dir = s:bundle_dir . '/repos/github.com'
 
-" ================ NERDTree fonts ========================
-
 if dein#load_state(s:bundle_dir)
     call dein#begin(s:bundle_dir)
 
@@ -35,6 +33,8 @@ if dein#load_state(s:bundle_dir)
     call dein#add('zchee/deoplete-go', {'build': 'make'})
     call dein#add('carlitux/deoplete-ternjs', {'build': 'npm install -g tern'})
     call dein#add('zchee/deoplete-jedi')
+    call dein#add('Shougo/neco-vim')
+    call dein#add('Shougo/neco-syntax')
     call dein#add('Shougo/neosnippet')
     call dein#add('honza/vim-snippets')
     call dein#add('dyng/ctrlsf.vim')
