@@ -328,6 +328,13 @@ nnoremap <Leader>af :CtrlSF
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>t :CtrlPBufTag<CR>
 
+" Search file
+nnoremap <S-s> :CtrlP<Space>
+
+" Search file in buffers
+nnoremap <Leader><Tab> <C-^>
+nnoremap <Leader>ls :ls<CR>:b<Space>
+
 " Maps for indentation in normal mode
 nnoremap <tab> >>
 nnoremap <s-tab> <<
