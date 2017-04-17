@@ -1,4 +1,4 @@
-installer "nvim" "brew install neovim/neovim/neovim && pip install neovim && pip3 install neovim"
+installer "nvim" "brew install neovim/neovim/neovim && pip install neovim && pip3 install neovim && gem install neovim"
 
 # Create base directories
 mkdir -p ~/.config/nvim/bundle
@@ -15,4 +15,8 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >
 && wget -P /usr/local/bin/ https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein \
 && chmod a+x /usr/local/bin/lein \
 && lein \
-&& echo ':plugins [[cider/cider-nrepl "0.14.0"]]' > ~/.lein/profiles.clj
+&& echo ':plugins [[cider/cider-nrepl "0.14.0"]]' > ~/.lein/profiles.clj \
+&& go get -u github.com/nsf/gocode \
+&& mkdir ~/.tern-project \
+&& pip install jedi \
+&& pip3 install jedi

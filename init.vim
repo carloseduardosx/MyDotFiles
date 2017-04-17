@@ -2,8 +2,6 @@ set runtimepath+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim
 let s:bundle_dir = expand('~/.config/nvim/bundle')
 let s:plugin_dir = s:bundle_dir . '/repos/github.com'
 
-" ================ NERDTree fonts ========================
-
 if dein#load_state(s:bundle_dir)
     call dein#begin(s:bundle_dir)
 
@@ -27,12 +25,19 @@ if dein#load_state(s:bundle_dir)
     call dein#add('gregsexton/MatchTag')
     call dein#add('sheerun/vim-polyglot')
     call dein#add('kristijanhusak/vim-hybrid-material')
+    call dein#add('Shougo/echodoc.vim')
     call dein#add('Shougo/deoplete.nvim')
+    call dein#add('Shougo/neco-vim')
+    call dein#add('Shougo/neco-syntax')
+    call dein#add('Shougo/neosnippet')
+    call dein#add('zchee/deoplete-go', {'build': 'make'})
     call dein#add('zchee/deoplete-clang')
+    call dein#add('zchee/deoplete-jedi')
+    call dein#add('zchee/deoplete-zsh')
     call dein#add('clojure-vim/async-clj-omni')
     call dein#add('slashmili/alchemist.vim')
     call dein#add('callmekohei/deoplete-fsharp')
-    call dein#add('Shougo/neosnippet')
+    call dein#add('carlitux/deoplete-ternjs', {'build': 'npm install -g tern'})
     call dein#add('honza/vim-snippets')
     call dein#add('dyng/ctrlsf.vim')
     call dein#add('ctrlpvim/ctrlp.vim')
@@ -384,11 +389,24 @@ let g:neosnippet#snippets_directory = [
 
 let g:deoplete#enable_at_startup = 1                                            "Enable deoplete autocompletion
 let g:deoplete#enable_smart_case = 1                                            "Enable deoplete smartcase autocompletion
+let g:deoplete#max_list = 1000                                                  "Max autocompletion list
 let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/4.0.0/lib/libclang.dylib' " C/C++
 let g:deoplete#sources#clang#clang_header = '/usr/bin/clang'                    " C/C++
 let g:deoplete#keyword_patterns = {}                                            "Clojure
 let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'         "Clojure
-let g:deoplete#max_list = 1000
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'                 "Go
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const'] "Go
+let g:deoplete#sources#go#use_cache = 1                                         "Go
+let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go'               "Go
+let g:tern_request_timeout = 1                                                  "JS - Request timeout for tern server
+let g:tern_show_signature_in_pum = '0'                                          "JS - This do disable full signature type on autocomplete
+"Add extra filetypes
+let g:tern#filetypes = [
+                \ 'jsx',
+                \ 'javascript.jsx',
+                \ 'vue',
+                \ '...'
+                \ ]
 
 let g:ackhighlight = 1                                                          "Highlight current search
 
