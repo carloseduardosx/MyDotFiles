@@ -235,6 +235,12 @@ vnoremap <Leader>rh :noh<CR>
 nnoremap <Leader>qq :q<CR>
 nnoremap <Leader>wq :wq<CR>
 
+" Disable arrow keys
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+
 " Moving around
 nnoremap H 0
 nnoremap L $
