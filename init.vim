@@ -340,6 +340,7 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>t :CtrlPBufTag<CR>
 
 " Search file
+nnoremap <Leader>p :Ack<Space>
 nnoremap <S-s> :CtrlP<Space>
 
 " Search file in buffers
