@@ -41,6 +41,7 @@ if dein#load_state(s:bundle_dir)
     call dein#add('honza/vim-snippets')
     call dein#add('dyng/ctrlsf.vim')
     call dein#add('ctrlpvim/ctrlp.vim')
+    call dein#add('terryma/vim-multiple-cursors')
     call dein#add('junegunn/goyo.vim')
     call dein#add('ryanoasis/vim-devicons')
 
