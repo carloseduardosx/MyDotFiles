@@ -187,3 +187,5 @@ read password
 # Installing zsh-completions
 . zsh-completions.sh
 
+# Installing iterm2-integration
+. iterm_integration.sh
