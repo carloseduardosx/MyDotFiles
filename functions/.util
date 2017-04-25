@@ -95,7 +95,7 @@ function quit_screen() {
   fi
 }
 
-request_info() {
+function request_info() {
   protocol=$1; url=$2; host=$protocol"://"$url
 
   printf "------- Dig\n"
@@ -109,6 +109,20 @@ request_info() {
 
   printf "\n\n\n------- WGET\n\n\n"
   wget --server-response -d -H -t 3 -v --spider $url
+}
+
+function replace_icons() {
+  zip="$1"
+  if test -e "$zip" ; then
+    mkdir icons
+    unzip -d icons "$zip"
+    cat icons/selection.json > gm-mobile-selection.json
+    cat icons/style.css > gm-mobile-font-style.css
+    cp icons/fonts/* fonts
+    rm -rf icons
+  else
+    echo "File not exist, should pass icons zip file"
+  fi
 }
 
 function chrome(){
