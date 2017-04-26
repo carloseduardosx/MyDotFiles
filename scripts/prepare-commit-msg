@@ -1,0 +1,11 @@
+#!/bin/bash
+orig_msg_file="$1"
+temp="temp_message"
+branch=$( git branch | grep '^\*' | cut -b3- )
+name=$( sed "s/feature\///g" <<< "$branch" )
+task=$( sed "s/hotfix\///g" <<< "$name" )
+
+echo "${task}:" >> "${temp}"
+cat "${orig_msg_file}" >> "${temp}"
+echo "$(sed '/^\s*$/d' "${temp}")" > "${orig_msg_file}"
+rm "${temp}"
