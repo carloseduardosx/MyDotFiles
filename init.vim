@@ -132,6 +132,8 @@ autocmd vimrc InsertLeave * NeoSnippetClearMarkers                              
 autocmd vimrc InsertEnter * :set nocul                                          "Remove cursorline highlight
 autocmd vimrc InsertLeave * :set cul                                            "Add cursorline highlight in normal mode
 autocmd vimrc FileType html,javascript,coffee,cucumber setlocal sw=2 sts=2 ts=2 "Set 2 indent for html
+autocmd vimrc FileType javascript,java :iabbrev <buffer> rr return
+autocmd vimrc FileType javascript,java :iabbrev <buffer> return NOPENOPENOPE
 autocmd vimrc FileType php,javascript setlocal cc=80                            "Set right margin only for php and js
 autocmd vimrc VimEnter,BufNewFile,BufReadPost * call s:LoadLocalVimrc()         "Load per project vimrc (Used for custom test mappings, etc.)
 autocmd StdinReadPre * let s:std_in=1                                           "Open NERDTree when vim is opened without any specified file
