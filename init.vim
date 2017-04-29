@@ -298,7 +298,8 @@ inoremap jj <Esc>
 nnoremap Y y$
 
 " Copy to system clipboard
-vnoremap <C-c> "+y
+vnoremap <Leader>c "+y
+
 " Paste from system clipboard with Ctrl + v
 inoremap <C-v> <Esc>"+p
 nnoremap <Leader>p "0p

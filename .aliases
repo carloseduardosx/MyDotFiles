@@ -33,7 +33,7 @@ alias android_list_all_packages="adb -d shell 'pm list packages -f' | sed -e 's/
 
 alias gmdjs_test="npm run prep:deps && cross-env CI=true react-scripts test --testPathPattern=\"test/app/containers/pages/FinancialSummaryPage.test.jsx\""
 
-alias gmdjs_igrc_local="npm uninstall --save gm-react-components && npm i --save /Users/carloseduardo/Projects/greenmile/gm-react-components"
+alias gmdjs_igrc_local="npm uninstall --save gm-react-components && npm i --save $HOME/Projects/greenmile/gm-react-components"
 
 alias gm_pidcat="pidcat com.greenmile.android"
 
