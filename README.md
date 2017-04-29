@@ -17,6 +17,7 @@ To configure new enviroment after format your OS X just go to `config_environmen
 - **git**
 - **grep**
 - **ack**
+- **ag**
 - **unrar**
 - **vim**
 - **nvim**

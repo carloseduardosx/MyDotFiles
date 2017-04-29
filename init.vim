@@ -420,6 +420,7 @@ let g:tern#filetypes = [
                 \ ]
 
 let g:ackhighlight = 1                                                          "Highlight current search
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 let g:delimitMate_expand_cr = 1                                                 "auto indent on enter
 
