@@ -22,7 +22,7 @@ if dein#load_state(s:bundle_dir)
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
     call dein#add('duff/vim-bufonly')
-    call dein#add('gregsexton/MatchTag')
+    call dein#add('gregsexton/MatchTag', {'on_ft': ['html']})
     call dein#add('sheerun/vim-polyglot')
     call dein#add('kristijanhusak/vim-hybrid-material')
     call dein#add('Shougo/echodoc.vim')
@@ -43,7 +43,6 @@ if dein#load_state(s:bundle_dir)
     call dein#add('ctrlpvim/ctrlp.vim')
     call dein#add('FelikZ/ctrlp-py-matcher')
     call dein#add('terryma/vim-multiple-cursors')
-    call dein#add('junegunn/goyo.vim')
     call dein#add('ryanoasis/vim-devicons')
 
     call dein#end()
@@ -233,7 +232,6 @@ nnoremap <Leader>' viw<Esc>a'<Esc>bi'<Esc>lel
 vnoremap <Leader>` di""<Esc>Pl
 
 " Remove search highlight
-nnoremap <Leader>rh :noh<CR>
 vnoremap <Leader>rh :noh<CR>
 
 " Save and quit
@@ -293,9 +291,6 @@ smap <expr><TAB> neosnippet#jumpable() ?
 \ "\<Plug>(neosnippet_jump)"
 \: "\<TAB>"
 
-" Map for Escape key
-inoremap jj <Esc>
-
 " Yank to the end of the line
 nnoremap Y y$
 
@@ -315,12 +310,6 @@ vnoremap p p`]
 " Move selected lines up and down
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-
-" Clear search highlight
-nnoremap <Leader><space> :noh<CR>
-
-" Toggle distraction free mode
-nnoremap <Leader>g :Goyo<CR>
 
 " Handle syntastic error window
 nnoremap <Leader>e :lopen<CR>
