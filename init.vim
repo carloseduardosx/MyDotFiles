@@ -41,6 +41,7 @@ if dein#load_state(s:bundle_dir)
     call dein#add('honza/vim-snippets')
     call dein#add('dyng/ctrlsf.vim')
     call dein#add('ctrlpvim/ctrlp.vim')
+    call dein#add('FelikZ/ctrlp-py-matcher')
     call dein#add('terryma/vim-multiple-cursors')
     call dein#add('junegunn/goyo.vim')
     call dein#add('ryanoasis/vim-devicons')
@@ -433,3 +434,12 @@ let g:goyo_width = 100                                                          
 let g:goyo_height = 100                                                         "100% height
 
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '                                "Set up spacing for sidebar icons
+
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }                       "Set up ctrlp py matcher
+let g:ctrlp_lazy_update = 350                                                   "Set delay to prevent extra search
+let g:ctrlp_clear_cache_on_exit = 0                                             "Do not clear filenames cache, to improve CtrlP startup. You can manualy clear it by <F5>
+let g:ctrlp_max_files = 0                                                       "Set no file limit, we are building a big project
+if executable("ag")                                                             " If ag is available use it as filename list generator instead of 'find'
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
+endif
