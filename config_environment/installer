@@ -25,6 +25,9 @@ read password
 # Installing wget
 . wget.sh
 
+# Installing NVM
+. nvm.sh
+
 # Installing git
 . git.sh
 
@@ -66,9 +69,6 @@ read password
 
 # Installing RVM with Ruby
 . rvm.sh
-
-# Installing NVM
-. nvm.sh
 
 # Installing Stack - Haskell
 . stack.sh
