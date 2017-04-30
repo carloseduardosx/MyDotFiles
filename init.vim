@@ -232,7 +232,7 @@ nnoremap <Leader>' viw<Esc>a'<Esc>bi'<Esc>lel
 vnoremap <Leader>` di""<Esc>Pl
 
 " Remove search highlight
-vnoremap <Leader>rh :noh<CR>
+nnoremap <Leader>rh :noh<CR>
 
 " Save and quit
 nnoremap <Leader>qq :q<CR>
