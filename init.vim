@@ -40,10 +40,10 @@ if dein#load_state(s:bundle_dir)
     call dein#add('carlitux/deoplete-ternjs', {'build': 'npm install -g tern'})
     call dein#add('honza/vim-snippets')
     call dein#add('dyng/ctrlsf.vim')
-    call dein#add('ctrlpvim/ctrlp.vim')
-    call dein#add('FelikZ/ctrlp-py-matcher')
     call dein#add('terryma/vim-multiple-cursors')
     call dein#add('ryanoasis/vim-devicons')
+    call dein#add('junegunn/fzf', {'build': './install --bin'})
+    call dein#add('junegunn/fzf.vim')
 
     call dein#end()
     call dein#save_state()
@@ -336,7 +336,8 @@ nnoremap <Leader>t :CtrlPBufTag<CR>
 
 " Search file
 nnoremap <Leader>p :Ack<Space>
-nnoremap <S-s> :CtrlP<Space>
+nnoremap <S-s> :Files<CR>
+nnoremap <Leader>s :Files<Space>
 
 " Search file in buffers
 nnoremap <Leader><Tab> <C-^>
@@ -357,6 +358,20 @@ nnoremap _ <c-w>5<
 " Center highlighted search
 nnoremap n nzz
 nnoremap N Nzz
+
+" FZF
+nnoremap gst :GFiles?<CR>
+nnoremap <Leader>gc :Commits<CR>
+nnoremap <Leader>bc :BCommits<CR>
+nnoremap <Leader>lb :Buffers<CR>
+nnoremap gls :GFiles<CR>
+nnoremap <Leader>gls :GFiles<CR>
+nnoremap <Leader>cc :Colors<CR>
+nnoremap <Leader>ag :Ag<Space>
+nnoremap <Leader>h :History<CR>
+nnoremap ch :History:<CR>
+nnoremap chs :History/<CR>
+
 
 " ================ plugins setups ========================
 
@@ -434,3 +449,32 @@ if executable("ag")                                                             
     set grepprg=ag\ --nogroup\ --nocolor
     let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
 endif
+
+" FZF
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~30%' }
+
+" In Neovim, you can set up fzf window using a Vim command
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
