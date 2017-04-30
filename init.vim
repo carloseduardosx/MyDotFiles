@@ -140,6 +140,7 @@ autocmd vimrc VimEnter,BufNewFile,BufReadPost * call s:LoadLocalVimrc()         
 autocmd StdinReadPre * let s:std_in=1                                           "Open NERDTree when vim is opened without any specified file
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif     "Open NERDTree when vim is opened without any specified file
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "Close vim if NERDTree is the only window open
+autocmd FileType html,css EmmetInstall                                          "Only Install emmet for html,css files
 
 autocmd vimrc VimEnter * set vb t_vb=
 
@@ -388,6 +389,7 @@ let g:gitgutter_eager = 0                                                       
 
 let g:user_emmet_expandabbr_key = '<c-e>'                                       "Change trigger emmet key
 let g:user_emmet_next_key = '<c-n>'                                             "Change trigger jump to next for emmet
+let g:user_emmet_install_global = 0                                             "Not load emmet for every file
 
 let g:NERDTreeChDirMode = 2                                                     "Always change the root directory
 let g:NERDTreeMinimalUI = 1                                                     "Disable help text and bookmark title
