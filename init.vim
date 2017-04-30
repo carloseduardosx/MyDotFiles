@@ -369,8 +369,8 @@ nnoremap <Leader>gls :GFiles<CR>
 nnoremap <Leader>cc :Colors<CR>
 nnoremap <Leader>ag :Ag<Space>
 nnoremap <Leader>h :History<CR>
-nnoremap ch :History:<CR>
-nnoremap chs :History/<CR>
+nnoremap <Leader>ch :History:<CR>
+nnoremap <Leader>chs :History/<CR>
 
 
 " ================ plugins setups ========================
