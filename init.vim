@@ -375,10 +375,6 @@ nnoremap <Leader>chs :History/<CR>
 
 " ================ plugins setups ========================
 
-let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:25,results:25'           "Ctrlp window setup
-let g:ctrlp_custom_ignore = {'dir':  '\v[\/]\.(meteor)$'}                       "Ignore .meteor folder
-let g:ctrlp_prompt_mappings = {'PrtDeleteEnt()': ['<c-@>']}                     "Map delete buffer in ctrlp
-
 let g:airline_powerline_fonts = 1                                               "Enable powerline fonts
 let g:airline_theme = "luna"                                                    "Set theme to powerline default theme
 let g:airline_skip_empty_sections = 1                                           "Removing empty sections
