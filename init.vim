@@ -343,6 +343,9 @@ nnoremap <Leader>s :Files<Space>
 nnoremap <Leader><Tab> <C-^>
 nnoremap <Leader>ls :ls<CR>:b<Space>
 
+" Close current buffer
+nnoremap <Leader>q :bd<CR>
+
 " Maps for indentation in normal mode
 nnoremap <tab> >>
 nnoremap <s-tab> <<
