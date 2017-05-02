@@ -131,7 +131,7 @@ autocmd vimrc BufWritePre * :call s:StripTrailingWhitespaces()                  
 autocmd vimrc InsertLeave * NeoSnippetClearMarkers                              "Remove unused markers for snippets
 autocmd vimrc InsertEnter * :set nocul                                          "Remove cursorline highlight
 autocmd vimrc InsertLeave * :set cul                                            "Add cursorline highlight in normal mode
-autocmd vimrc FileType html,javascript,coffee,cucumber,sh,zsh setlocal sw=2 sts=2 ts=2 "Set 2 indent for html
+autocmd vimrc FileType html,javascript,coffee,cucumber,sh,zsh,css setlocal sw=2 sts=2 ts=2 "Set 2 indent for html
 autocmd vimrc FileType javascript,java :iabbrev <buffer> rr return
 autocmd vimrc FileType javascript,java :iabbrev <buffer> return NOPENOPENOPE
 autocmd vimrc FileType php,javascript setlocal cc=80                            "Set right margin only for php and js
@@ -279,6 +279,9 @@ nnoremap <Leader>v <C-w>v
 " Down is really the next line
 nnoremap j gj
 nnoremap k gk
+
+" Indentation
+nnoremap <Leader>i :setlocal sw=2 sts=2 ts=2<CR>
 
 " Expand snippets on tab if snippets exists, otherwise do autocompletion
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
