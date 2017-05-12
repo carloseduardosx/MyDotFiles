@@ -174,6 +174,7 @@ set laststatus=2                                        "Show statusline all the
 
 iabbrev mail carloseduardosx2015@gmail.com
 iabbrev gu https://github.com/carloseduardosx
+inoreabbrev gmcall export function functionName({ server, client = getDefaultClient() }) {<CR>}
 cnoreabbrev Wq wq
 cnoreabbrev WQ wq
 cnoreabbrev W w
