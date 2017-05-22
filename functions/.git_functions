@@ -22,7 +22,7 @@ gpush() {
 g_cf() {
 
   if [[ "$2" == "js" ]]; then
-    git checkout feature/GMDJS-$1
+    git checkout react/GMDJS-$1
   else
     git checkout feature/GM-$1
   fi
