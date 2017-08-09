@@ -1,33 +1,37 @@
 #!/bin/bash
 
-g_files_modified_by() {
+function g_files_modified_by() {
   local name="$1"
   git log --pretty="%H" --author=$name | while read commit_hash; do git show --oneline --name-only $commit_hash | tail -n+2; done | sort | uniq
 }
 
-g_actual_branch() {
+function g_actual_branch() {
   git branch | sed -n '/\* /s///p'
 }
 
-g_dir_assume_unchaged() {
+function g_dir_assume_unchaged() {
   git update-index --assume-unchanged $(git ls-files | tr '\n' ' ')
 }
 
-g_dir_no_assume_unchaged() {
+function g_dir_no_assume_unchaged() {
   git update-index --no-assume-unchanged $(git ls-files | tr '\n' ' ')
 }
 
-gpull() {
+function gpull() {
   local branch=$( git branch | sed -n 's/^\* \(.*\)/\1/p' )
   git pull origin $branch
 }
 
-gpush() {
+function gpush() {
   local branch=$( git branch | sed -n 's/^\* \(.*\)/\1/p' )
   git push --recurse-submodules=on-demand origin $branch
 }
 
-g_cf() {
+function gstash() {
+  g stash apply && g stash drop
+}
+
+function g_cf() {
 
   if [[ "$2" == "js" ]]; then
     git checkout react/GMDJS-$1
@@ -36,7 +40,7 @@ g_cf() {
   fi
 }
 
-g_ch() {
+function g_ch() {
 
   if [[ "$2" == "js" ]]; then
     git checkout hotfix/GMDJS-$1
@@ -45,7 +49,7 @@ g_ch() {
   fi
 }
 
-gsync() {
+function gsync() {
 
   info "Adding all files to index"
   git add .
@@ -58,7 +62,7 @@ gsync() {
   gpush
 }
 
-gh_branches() {
+function gh_branches() {
 
   local user
   local project
@@ -72,7 +76,7 @@ gh_branches() {
   open https://github.com/$user/$project/branches
 }
 
-gh_branches_compare() {
+function gh_branches_compare() {
 
   local user
   local project
@@ -91,7 +95,7 @@ gh_branches_compare() {
   open https://github.com/$user/$project/compare/$branch
 }
 
-gh_branches_compare_range() {
+function gh_branches_compare_range() {
 
   local user
   local project
@@ -114,7 +118,7 @@ gh_branches_compare_range() {
   open https://github.com/greenmilellc-org/$project/compare/$first_branch...$second_branch
 }
 
-gh_commits() {
+function gh_commits() {
 
   local user
   local project
