@@ -9,6 +9,14 @@ g_actual_branch() {
   git branch | sed -n '/\* /s///p'
 }
 
+g_dir_assume_unchaged() {
+  git update-index --assume-unchanged $(git ls-files | tr '\n' ' ')
+}
+
+g_dir_no_assume_unchaged() {
+  git update-index --no-assume-unchanged $(git ls-files | tr '\n' ' ')
+}
+
 gpull() {
   local branch=$( git branch | sed -n 's/^\* \(.*\)/\1/p' )
   git pull origin $branch

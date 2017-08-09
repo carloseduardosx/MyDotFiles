@@ -73,6 +73,9 @@ export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 path+=($NVM_DIR)
 
+# GITHUB
+export GITHUB_TOKEN=a54b39c834d7f6c67a09bfb64d956bab9cce3da1
+
 # RUST
 export RUST_DIR="$HOME/.cargo"
 export RUST_BIN="$RUST_DIR/bin"

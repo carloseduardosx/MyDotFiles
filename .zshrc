@@ -32,3 +32,5 @@ autoload -U compinit && compinit
 export PATH="$PATH:$HOME/.rvm/bin"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+function gmdevenv { cd /Users/carloseduardosx/Projects/greenmile/gm-dev-env/core; ./run.sh $*; cd - >/dev/null; }
