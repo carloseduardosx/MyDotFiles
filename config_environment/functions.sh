@@ -8,7 +8,7 @@ function success() {
 
 function install() {
     info "Installing ${1}"
-    $1
+    eval $1
     success "${1} installed"
 }
 
