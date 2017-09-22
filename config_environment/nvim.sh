@@ -12,11 +12,9 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >
 && rm config_environment/dein_installer.sh \
 && nvim -c 'call dein#install() | exit' \
 && brew install llvm --with-clang \
-&& wget -P /usr/local/bin/ https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein \
-&& chmod a+x /usr/local/bin/lein \
-&& lein \
-&& echo ':plugins [[cider/cider-nrepl "0.14.0"]]' > ~/.lein/profiles.clj \
+&& brew install leiningen \
 && go get -u github.com/nsf/gocode \
 && mkdir ~/.tern-project \
 && pip install jedi \
-&& pip3 install jedi
+&& pip3 install jedi \
+&& cd config_environment
