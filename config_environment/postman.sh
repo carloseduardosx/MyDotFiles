@@ -1,1 +1,1 @@
-installer "postman" "brew castk install postman"
+installer "postman" "brew cask install postman"
