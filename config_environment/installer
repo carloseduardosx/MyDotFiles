@@ -43,6 +43,9 @@ read password
 # Installing unrar
 . unrar.sh
 
+# Installing Python with pip
+. python.sh
+
 # Installing vim
 . vim.sh
 
@@ -61,8 +64,6 @@ read password
 # Installing Gradle
 . gradle.sh
 
-# Installing Python with pip
-. python.sh
 
 # Installing Kotlin
 . kotlin.sh
@@ -88,20 +89,23 @@ read password
 # Installing PostgreSQL
 . postgresql.sh
 
+# Installing Jetbrains-Toolbox
+. jetbrains_toolbox.sh
+
 # Installing Intellij-IDEA
-. intellij.sh
+#. intellij.sh
 
 # Installing CLion
-. clion.sh
+#. clion.sh
 
 # Installing DataGrip
-. datagrip.sh
+#. datagrip.sh
 
 # Installing WebStorm
-. webstorm.sh
+#. webstorm.sh
 
 # Installing AppCode
-. appcode.sh
+#. appcode.sh
 
 # Installing Android-Studio
 . android_studio.sh
