@@ -14,7 +14,7 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >
 && brew install llvm --with-clang \
 && brew install leiningen \
 && go get -u github.com/nsf/gocode \
-&& mkdir ~/.tern-project \
-&& pip install jedi \
+&& mkdir -p ~/.tern-project \
+&& echo ${password} | sudo pip install jedi \
 && pip3 install jedi \
 && cd config_environment
