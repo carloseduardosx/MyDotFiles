@@ -13,8 +13,8 @@ export ANDROID_PLATFORM_TOOLS="$ANDROID_HOME/platform-tools"
 path+=("$ANDROID_HOME" "$ANDROID_TOOLS" "$ANDROID_BUILD_TOOLS" "$ANDROID_TOOLS_BIN" "$ANDROID_PLATFORM_TOOLS")
 
 # Java
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home"
-export JAVA8_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home"
+export JAVA8_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home"
 export JAVA7_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home"
 path+=("$JAVA_HOME" "$JAVA7_HOME" "$JAVA8_HOME")
 
