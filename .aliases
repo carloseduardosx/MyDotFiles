@@ -100,7 +100,9 @@ alias gmdmerch_start_main_activity="adb shell am start -n com.greenmile.merch/co
 
 alias agenda_deploy="gulp deploy --crosswalk && adb install build/AgendaTeen.apk && agenda_start"
 
-alias agenda_start="adb shell am start -n com.agendateen.app/.MainActivity"
+alias agendateen_start="adb shell am start -n com.agendateen.app/.MainActivity"
+
+alias agendakids_start="adb shell am start -n com.agendateen.app/.MainActivity"
 
 alias bms="./gradlew clean build -PTMDB_API_KEY=eae42979f396c0f200d5d7e347efacdf"
 
