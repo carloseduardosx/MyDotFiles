@@ -36,11 +36,7 @@ To configure new enviroment after format your OS X just go to `config_environmen
 - **MySQL**
 - **MySQLWorkBench**
 - **PostgreSQL**
-- **Intellij IDEA**
-- **Clion**
-- **DataGrip**
-- **WebStorm**
-- **AppCode**
+- **Jetbrains Toolbox**
 - **Android Studio**
 - **pidcat**
 - **iTerm2**
