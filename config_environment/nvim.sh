@@ -12,7 +12,7 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >
 && rm config_environment/dein_installer.sh \
 && nvim -c 'call dein#install() | exit' \
 && brew install llvm --with-clang \
-&& brew install leiningen \
+&& brew install leiningen --force \
 && go get -u github.com/nsf/gocode \
 && mkdir -p ~/.tern-project \
 && echo ${password} | sudo pip install jedi \
