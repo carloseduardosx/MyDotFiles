@@ -1,3 +1,4 @@
+#!/bin/bash
 function docker_run_detached_mod() {
 
   docker run -d -P --name $1
@@ -86,3 +87,12 @@ function drm() {
 function drmallc() {
   docker rm `docker ps -a -q`
 }
+
+function dm-eval() {
+  eval $(docker-machine env "$1")
+}
+
+function dm-uneval() {
+  eval $(docker-machine env -u)
+}
+
