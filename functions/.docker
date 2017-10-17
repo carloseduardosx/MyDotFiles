@@ -1,3 +1,4 @@
+#!/bin/bash
 function docker_run_detached_mod() {
 
   docker run -d -P --name $1
@@ -86,3 +87,24 @@ function drm() {
 function drmallc() {
   docker rm `docker ps -a -q`
 }
+
+function dm-eval() {
+  eval $(docker-machine env "$1")
+}
+
+function dm-uneval() {
+  eval $(docker-machine env -u)
+}
+
+function dm-stop-all() {
+  docker-machine stop $(docker-machine ls -q)
+}
+
+function dm-start-all() {
+  docker-machine start $(docker-machine ls -q)
+}
+
+function dtty() {
+  screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty
+}
+

@@ -34,3 +34,13 @@ export PATH="$PATH:$HOME/.rvm/bin"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 function gmdevenv { cd /Users/carloseduardosx/Projects/greenmile/gm-dev-env/core; ./run.sh $*; cd - >/dev/null; }
+
+function checkProgram() {
+    echo "$1"
+    if command -v $1 >/dev/null 2>&1; then
+        info "$1 already installed"
+    else
+        echo "Program not installed"
+    fi
+
+}

@@ -81,3 +81,7 @@ export GITHUB_TOKEN=a54b39c834d7f6c67a09bfb64d956bab9cce3da1
 export RUST_DIR="$HOME/.cargo"
 export RUST_BIN="$RUST_DIR/bin"
 path+=($RUST_DIR $RUST_BIN)
+
+# DOCKER
+export DVM_HOME="/usr/local/opt/dvm/dvm.sh"
+[ -f $DVM_HOME ] && . $DVM_HOME
