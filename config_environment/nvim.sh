@@ -17,4 +17,5 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >
 && mkdir -p ~/.tern-project \
 && echo ${password} | sudo pip install jedi \
 && pip3 install jedi \
+&& pip3 install neovim \
 && cd config_environment
