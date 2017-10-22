@@ -20,13 +20,15 @@ function find_function() {
 }
 
 function build_failure() {
-
   exit 1
 }
 
 function build_success() {
-
   exit 0
+}
+
+function find-process() {
+  sudo lsof -n -i :$1 | grep LISTEN
 }
 
 function count_files_recursively() {
