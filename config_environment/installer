@@ -28,6 +28,9 @@ read password
 # Installing NVM
 . nvm.sh
 
+# Installing yarn
+. yarn.sh
+
 # Installing git
 . git.sh
 
