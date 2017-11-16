@@ -1,1 +1,1 @@
-installer "adobe-photoshop-cc" 'echo ${password} | brew cask install adobe-photoshop-cc'
+installer "adobe-photoshop-cs6" 'echo "${password}" | brew cask install adobe-photoshop-cs6'
