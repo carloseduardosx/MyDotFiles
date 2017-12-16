@@ -167,7 +167,7 @@ read password
 . genymotion.sh
 
 # Installing GitHub-Desktop
-. github_desktop.sh
+#. github_desktop.sh
 
 # Installing Adobe Photoshop
 . photoshop.sh
