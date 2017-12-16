@@ -1,0 +1,10 @@
+#!/bin/bash
+
+function ve_a() {
+  . ~/.virtualenv/$1/bin/activate
+}
+
+function ve_d {
+  deactivate
+}
+
