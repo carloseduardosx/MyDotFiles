@@ -30,6 +30,7 @@ To configure new enviroment after format your OS X just go to `config_environmen
 - **Kotlin**
 - **RVM**
 - **NVM**
+- **Yarn**
 - **Stack**
 - **GO**
 - **gitql**
