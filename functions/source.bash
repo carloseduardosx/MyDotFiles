@@ -11,6 +11,7 @@ export SECRETS=$HOME/Projects/MyDotFiles/secrets/functions
 . $FUNCTIONS/.cordova
 . $FUNCTIONS/.babel
 . $FUNCTIONS/.corona
+. $FUNCTIONS/.python
 . $SECRETS/.greenmile
 . $SECRETS/.agenda
 

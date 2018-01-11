@@ -1,0 +1,19 @@
+#!/bin/bash
+
+function ve_a() {
+  . ~/.virtualenv/$1/bin/activate
+}
+
+function ve_d {
+  deactivate
+}
+
+function ve_c {
+  virtualenv ~/.virtualenv/$1
+}
+
+function ve_ca {
+  ve_c $1
+  ve_a $1
+}
+
