@@ -102,7 +102,7 @@ alias agenda_deploy="gulp deploy --crosswalk && adb install build/AgendaTeen.apk
 
 alias agendateen_start="adb shell am start -n com.agendateen.app/.MainActivity"
 
-alias agendakids_start="adb shell am start -n com.agendakidsdigital.app/.MainActivity"
+alias agendaedu_start="adb shell am start -n com.agendakidsdigital.app/.MainActivity"
 
 alias bms="./gradlew clean build -PTMDB_API_KEY=eae42979f396c0f200d5d7e347efacdf"
 
