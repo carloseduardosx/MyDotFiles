@@ -220,6 +220,12 @@ nnoremap gdiff :Gdiff<CR>
 nnoremap gb :Gbrowse<CR>
 vnoremap gb :Gbrowse<CR>
 
+" Disable cursor keys
+nnoremap <Up> <NOP>
+nnoremap <Down> <NOP>
+nnoremap <Left> <NOP>
+nnoremap <Right> <NOP>
+
 " Update init.vim
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>

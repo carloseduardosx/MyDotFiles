@@ -1,1 +1,1 @@
-installer "github-desktop" "brew cask install github-desktop"
+installer "github-desktop" "brew cask install github"
