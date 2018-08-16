@@ -11,7 +11,7 @@ password=""
 
 # TODO automatically input password when asked
 info "Type your password"
-read password
+read -s password
 
 # Installing Homebrew
 . homebrew.sh
