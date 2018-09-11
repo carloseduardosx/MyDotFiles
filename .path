@@ -25,6 +25,8 @@ path+=("$KOTLIN_HOME")
 
 # Ruby
 export RVM="$HOME/.rvm/bin"
+export GEM_HOME=$HOME/.gem
+export GEM_PATH=$HOME/.gem
 path+=("$RVM")
 
 # MySQL
