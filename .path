@@ -87,3 +87,7 @@ path+=($RUST_DIR $RUST_BIN)
 # DOCKER
 export DVM_HOME="/usr/local/opt/dvm/dvm.sh"
 [ -f $DVM_HOME ] && . $DVM_HOME
+
+# LaTeX
+export LATEX_HOME="/Library/TeX/texbin"
+path+=($LATEX_HOME)
