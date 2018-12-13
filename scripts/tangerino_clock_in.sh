@@ -17,9 +17,12 @@ function info() {
 
 current_date=$(date '+%d/%m/%Y %H:%M:%S')
 employer_id="${EMPLOYER_ID}"
+employee_pin="${EMPLOYEE_PIN}"
 
-info "What's your PIN?"
-read employee_pin
+if ! test -n "${employer_pin}"; then
+  info "What's your PIN?"
+  read employee_pin
+fi
 
 if ! test -n "${employer_id}"; then
   info "What's the employer code?"
