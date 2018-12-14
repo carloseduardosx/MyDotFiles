@@ -25,6 +25,8 @@ path+=("$KOTLIN_HOME")
 
 # Ruby
 export RVM="$HOME/.rvm/bin"
+export GEM_HOME=$HOME/.gem
+export GEM_PATH=$HOME/.gem
 path+=("$RVM")
 
 # MySQL
@@ -86,6 +88,6 @@ path+=($RUST_DIR $RUST_BIN)
 export DVM_HOME="/usr/local/opt/dvm/dvm.sh"
 [ -f $DVM_HOME ] && . $DVM_HOME
 
-# LaTex
-export LATEX="/Library/TeX/texbin"
-path+=($LATEX)
+# LaTeX
+export LATEX_HOME="/Library/TeX/texbin"
+path+=($LATEX_HOME)

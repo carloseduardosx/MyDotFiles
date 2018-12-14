@@ -1,5 +1,19 @@
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
 if [[ -o interactive ]]; then
-  if [ "$TERM" != "screen" -a "$ITERM_SHELL_INTEGRATION_INSTALLED" = "" ]; then
+  if [ "$ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX""$TERM" != "screen" -a "$ITERM_SHELL_INTEGRATION_INSTALLED" = "" ]; then
     ITERM_SHELL_INTEGRATION_INSTALLED=Yes
     ITERM2_SHOULD_DECORATE_PROMPT="1"
     # Indicates start of command output. Runs just before command executes.
@@ -89,12 +103,12 @@ if [[ -o interactive ]]; then
       ITERM2_SHOULD_DECORATE_PROMPT=""
 
       # Add our escape sequences just before the prompt is shown.
-      # if [[ $PS1 == *'$(iterm2_prompt_mark)'* ]]
-      # then
-      #   PS1="$PS1%{$(iterm2_prompt_end)%}"
-      # else
-      #   PS1="%{$(iterm2_prompt_mark)%}$PS1%{$(iterm2_prompt_end)%}"
-      # fi
+      if [[ $PS1 == *'$(iterm2_prompt_mark)'* ]]
+      then
+        PS1="$PS1%{$(iterm2_prompt_end)%}"
+      else
+        PS1="%{$(iterm2_prompt_mark)%}$PS1%{$(iterm2_prompt_end)%}"
+      fi
     }
 
     iterm2_precmd() {
@@ -114,13 +128,17 @@ if [[ -o interactive ]]; then
     # This is not run if you press ^C while entering a command.
     iterm2_preexec() {
       # Set PS1 back to its raw value prior to executing the command.
-      # PS1="$ITERM2_PRECMD_PS1"
+      PS1="$ITERM2_PRECMD_PS1"
       ITERM2_SHOULD_DECORATE_PROMPT="1"
       iterm2_before_cmd_executes
     }
 
     # If hostname -f is slow on your system, set iterm2_hostname prior to sourcing this script.
-    [[ -z "$iterm2_hostname" ]] && iterm2_hostname=`hostname -f`
+    [[ -z "$iterm2_hostname" ]] && iterm2_hostname=`hostname -f 2>/dev/null`
+    # some flavors of BSD (i.e. NetBSD and OpenBSD) don't have the -f option
+    if [ $? -ne 0 ]; then
+      iterm2_hostname=`hostname`
+    fi
 
     [[ -z $precmd_functions ]] && precmd_functions=()
     precmd_functions=($precmd_functions iterm2_precmd)
@@ -129,7 +147,7 @@ if [[ -o interactive ]]; then
     preexec_functions=($preexec_functions iterm2_preexec)
 
     iterm2_print_state_data
-    printf "\033]1337;ShellIntegrationVersion=5;shell=zsh\007"
+    printf "\033]1337;ShellIntegrationVersion=6;shell=zsh\007"
   fi
 fi
-alias imgcat=~/.iterm2/imgcat; alias it2dl=~/.iterm2/it2dl
+alias imgcat=~/.iterm2/imgcat;alias imgls=~/.iterm2/imgls;alias it2attention=~/.iterm2/it2attention;alias it2check=~/.iterm2/it2check;alias it2copy=~/.iterm2/it2copy;alias it2dl=~/.iterm2/it2dl;alias it2getvar=~/.iterm2/it2getvar;alias it2setcolor=~/.iterm2/it2setcolor;alias it2setkeylabel=~/.iterm2/it2setkeylabel;alias it2ul=~/.iterm2/it2ul;alias it2universion=~/.iterm2/it2universion

@@ -9,6 +9,10 @@ function g_actual_branch() {
   git branch | sed -n '/\* /s///p'
 }
 
+function g_purge_branch() {
+  git branch -D "${1}" && git push --delete origin "${1}"
+}
+
 function g_dir_assume_unchaged() {
   git update-index --assume-unchanged $(git ls-files | tr '\n' ' ')
 }
