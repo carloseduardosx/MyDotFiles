@@ -193,8 +193,11 @@ read -s password
 # Installing oh-my-zsh
 . oh_my_zsh.sh
 
-# Installing zsh-completions
-. zsh-completions.sh
+# Installing zsh-autosuggestions
+. zsh-autosuggestions.sh
+
+# Installing zsh-syntax-highlighting
+. zsh-syntax-highlighting.sh
 
 # Installing iterm2-integration
 . iterm_integration.sh

@@ -3,7 +3,11 @@ export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git zsh-completions)
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
 autoload -U compinit && compinit
 
 # Path
