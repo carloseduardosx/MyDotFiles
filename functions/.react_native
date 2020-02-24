@@ -1,0 +1,11 @@
+#!/bin/bash
+
+function rn-clean() {
+  watchman watch-del-all
+  rm -rf $TMPDIR/react-*
+  rm -rf $TMPDIR/haste-*
+  rm -rf $TMPDIR/metro-*
+  rm -rf node_modules && yarn
+  yarn start --reset-cache
+}
+

@@ -12,6 +12,8 @@ export SECRETS=$HOME/Projects/MyDotFiles/secrets/functions
 . $FUNCTIONS/.babel
 . $FUNCTIONS/.corona
 . $FUNCTIONS/.python
+. $FUNCTIONS/.react_native
+. $SECRETS/.ssh
 . $SECRETS/.greenmile
 . $SECRETS/.agenda
 
