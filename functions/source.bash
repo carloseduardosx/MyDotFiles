@@ -16,4 +16,5 @@ export SECRETS=$HOME/Projects/MyDotFiles/secrets/functions
 . $SECRETS/.ssh
 . $SECRETS/.greenmile
 . $SECRETS/.agenda
+. $SECRETS/.qwkin
 
