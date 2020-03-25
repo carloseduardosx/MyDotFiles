@@ -1,4 +1,4 @@
-installer "nvim" "brew install neovim/neovim/neovim && pip install neovim && pip3 install neovim && gem install neovim"
+installer "nvim" "brew install neovim && pip install neovim --user && pip3 install neovim --user && gem install neovim"
 
 # Create base directories
 mkdir -p ~/.config/nvim/bundle
@@ -11,11 +11,10 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >
 && ln -sf $(pwd)/tmux.conf ~/.tmux.conf \
 && rm config_environment/dein_installer.sh \
 && nvim -c 'call dein#install() | exit' \
-&& brew install llvm --with-clang \
+&& brew install llvm \
 && brew install leiningen --force \
 && go get -u github.com/nsf/gocode \
 && mkdir -p ~/.tern-project \
 && echo ${password} | sudo pip install jedi \
 && pip3 install jedi \
-&& pip3 install neovim \
 && cd config_environment

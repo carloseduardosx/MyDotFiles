@@ -51,7 +51,7 @@ path+=("$SCRIPTS")
 
 # GO
 export GOPATH="$HOME/Go"
-export GOROOT="/usr/local/Cellar/go/1.8.1/libexec"
+export GOROOT="/usr/local/Cellar/go/1.13.8/libexec"
 path+=($GOPATH $GOROOT)
 
 # GITQL
@@ -91,3 +91,7 @@ export DVM_HOME="/usr/local/opt/dvm/dvm.sh"
 # LaTeX
 export LATEX_HOME="/Library/TeX/texbin"
 path+=($LATEX_HOME)
+
+# Python
+export PYTHON3="/Users/carloseduardosx/Library/Python/3.7/bin"
+path+=($PYTHON3)
