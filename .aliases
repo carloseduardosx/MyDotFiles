@@ -179,6 +179,7 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 alias spotlight_off="sudo mdutil -a -i off"
 alias spotlight_on="sudo mdutil -a -i on"
 alias uninstall_java="sudo rm -fr /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin && sudo rm -fr /Library/PreferencePanes/JavaControlPanel.prefPane && sudo rm -fr ~/Library/Application\ Support/Java"
+alias copy="tr -d '\n' | pbcopy"
 
 #################################################################
 # Util                                                          #
@@ -239,11 +240,6 @@ alias c="cordova"
 alias babel="babel.js"
 
 #################################################################
-# VIM                                                           #
-#################################################################
-alias vim="/usr/local/bin/vim"
-
-#################################################################
 # Webpack                                                       #
 #################################################################
 alias webpack="webpack.js"
@@ -265,11 +261,6 @@ alias pserver="python -m SimpleHTTPServer"
 # Grep updated                                                  #
 #################################################################
 alias ggrep="/usr/local/Cellar/grep/2.27/bin/grep"
-
-#################################################################
-# NeoVIM                                                        #
-#################################################################
-alias vim="/usr/local/bin/nvim"
 
 #################################################################
 # PostgreSQL                                                    #

@@ -39,3 +39,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 function gmdevenv { cd /Users/carloseduardosx/Projects/greenmile/gm-dev-env/core; ./run.sh $*; cd - >/dev/null; }
 
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform

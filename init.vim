@@ -31,7 +31,6 @@ if dein#load_state(s:bundle_dir)
     call dein#add('Shougo/neco-vim')
     call dein#add('Shougo/neco-syntax')
     call dein#add('Shougo/neosnippet')
-    call dein#add('zchee/deoplete-go', {'build': 'make'})
     call dein#add('zchee/deoplete-clang')
     call dein#add('zchee/deoplete-jedi')
     call dein#add('zchee/deoplete-zsh')
@@ -422,10 +421,6 @@ let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/4.0.0/lib/l
 let g:deoplete#sources#clang#clang_header = '/usr/bin/clang'                    " C/C++
 let g:deoplete#keyword_patterns = {}                                            "Clojure
 let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'         "Clojure
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'                 "Go
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const'] "Go
-let g:deoplete#sources#go#use_cache = 1                                         "Go
-let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go'               "Go
 let g:tern_request_timeout = 1                                                  "JS - Request timeout for tern server
 let g:tern_show_signature_in_pum = '0'                                          "JS - This do disable full signature type on autocomplete
 "Add extra filetypes

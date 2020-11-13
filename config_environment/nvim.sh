@@ -1,4 +1,4 @@
-installer "nvim" "brew install neovim && pip install neovim --user && pip3 install neovim --user && gem install neovim"
+installer "nvim" "brew install neovim && pip install neovim --user && pip3 install neovim --user && pip3 install --user pynvim && gem install neovim"
 
 # Create base directories
 mkdir -p ~/.config/nvim/bundle

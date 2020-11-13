@@ -99,8 +99,7 @@ function quit_screen() {
 
 function request_info() {
   protocol=$1; url=$2; host=$protocol"://"$url
-
-  printf "------- Dig\n"
+printf "------- Dig\n"
   dig $url
 
   printf "------- Curl\n\n\n"
@@ -144,4 +143,23 @@ function jira () {
 
 function sha1() {
   openssl sha1 $1
+}
+
+function decode_jwt() {
+  jwt_components=("${(@s/./)1}")
+  jwt_component_names=('Header' 'Payload' 'Signature')
+
+  info "=> JWT Decoded data"
+  for (( i = 1; i <= $#jwt_components; i++ )) do
+    jwt_component="${jwt_components[$i]}"
+    jwt_component_decoded=$(echo "$jwt_component" | base64 --decode)
+    jwt_component_name="${jwt_component_names[$i]}"
+
+    info "- ${jwt_component_name}"
+    log "${jwt_component_decoded}"
+  done
+}
+
+function gifly() {
+    ffmpeg -i "$1" -s 1400x800 -pix_fmt rgb24 -r 20 -f gif -  | gifsicle --optimize=3 --delay=3 > "$2"
 }

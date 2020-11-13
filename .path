@@ -95,3 +95,11 @@ path+=($LATEX_HOME)
 # Python
 export PYTHON3="/Users/carloseduardosx/Library/Python/3.7/bin"
 path+=($PYTHON3)
+
+# Ngrok
+export NGROK="/Users/carloseduardosx/Documents/ngrok"
+path+=($NGROK)
+
+# Flutter
+export FLUTTER="/Users/carloseduardosx/flutter/flutter/bin"
+path+=($FLUTTER)
