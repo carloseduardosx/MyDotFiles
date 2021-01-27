@@ -268,3 +268,8 @@ alias ggrep="/usr/local/Cellar/grep/2.27/bin/grep"
 alias pg_start="brew services start postgresql"
 alias pg_stop="brew services stop postgresql"
 
+#################################################################
+# Network                                                    #
+#################################################################
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+
