@@ -269,7 +269,8 @@ alias pg_start="brew services start postgresql"
 alias pg_stop="brew services stop postgresql"
 
 #################################################################
-# Network                                                    #
+# Network                                                       #
 #################################################################
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias clear_dns_cache="sudo killall -HUP mDNSResponder"
 
