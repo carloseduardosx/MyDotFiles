@@ -1,0 +1,13 @@
+#!/bin/bash
+
+function exec_from_file() {
+  file="$1"
+  cmd="$2"
+
+  while IFS="" read -r p || [ -n "$p" ]
+  do
+    info "Executing command: $cmd"
+    eval "$cmd"
+    success "Command succeded!"
+  done < "$file"
+}
