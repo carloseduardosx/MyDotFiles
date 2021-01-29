@@ -2,12 +2,12 @@
 
 function exec_from_file() {
   file="$1"
-  cmd="$2"
+  cmd_function="$2"
 
   while IFS="" read -r p || [ -n "$p" ]
   do
-    info "Executing command: $cmd"
-    eval "$cmd"
+    info "Executing command: $cmd_function"
+    eval "$cmd_function" "$p"
     success "Command succeded!"
   done < "$file"
 }
