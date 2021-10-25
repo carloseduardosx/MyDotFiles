@@ -35,6 +35,10 @@ function gstash() {
   g stash apply && g stash drop
 }
 
+function gcheckout() {
+  g fetch origin "${1}" && g checkout "${1}"
+}
+
 function g_cf() {
 
   if [[ "$2" == "js" ]]; then
