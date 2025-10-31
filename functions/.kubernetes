@@ -1,0 +1,13 @@
+#!/bin/bash
+
+function kubectl_svc_ip() {
+  kubectl get service $1 -o go-template --template '{{ .spec.clusterIP }}'
+}
+
+function use_adl_kubectl() {
+  sudo cp /usr/local/bin/kubectl.adl /usr/local/bin/kubectl
+}
+
+function use_local_kubectl() {
+  sudo cp /usr/local/bin/kubectl.local /usr/local/bin/kubectl
+}

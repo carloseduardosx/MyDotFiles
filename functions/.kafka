@@ -1,0 +1,13 @@
+#!/bin/bash
+
+function kconsumer() {
+	kafka-console-consumer --bootstrap-server ${1} --topic "${@:2}"
+}
+
+function kgroups() {
+	kafka-consumer-groups --bootstrap-server ${1} --timeout 3600000 "${@:2}"
+}
+
+function ktopics() {
+	kafka-topics --bootstrap-server ${1} "${@:2}"
+}

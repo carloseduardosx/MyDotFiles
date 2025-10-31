@@ -14,8 +14,11 @@ export SECRETS=$HOME/Projects/MyDotFiles/secrets/functions
 . $FUNCTIONS/.python
 . $FUNCTIONS/.react_native
 . $FUNCTIONS/.file
-. $SECRETS/.ssh
-. $SECRETS/.greenmile
-. $SECRETS/.agenda
-. $SECRETS/.qwkin
-
+. $FUNCTIONS/.mongo
+. $FUNCTIONS/.kubernetes
+. $FUNCTIONS/.kafka
+. $SECRETS/.adl
+# . $SECRETS/.ssh
+# . $SECRETS/.greenmile
+# . $SECRETS/.agenda
+# . $SECRETS/.qwkin

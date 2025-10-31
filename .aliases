@@ -4,7 +4,7 @@
 # Android                                                       #
 #################################################################
 
-alias android_lp="adb shell pm list packages -u";
+alias android_lp="adb shell pm list packages -u"
 
 alias lp="adb shell pm list permissions -d -g"
 
@@ -25,7 +25,6 @@ alias android_backup="adb backup -f ~/Documents/adb_backup/GMBackup.ab -n oapk c
 alias android_decompress_backup='dd if=GMBackup.ab bs=1 skip=24 | python -c "import zlib, sys;sys.stdout.write(zlib.decompress(sys.stdin.read()))" | tar -xvf -'
 
 alias android_list_all_packages="adb -d shell 'pm list packages -f' | sed -e 's/.*=//' | sort"
-
 
 #################################################################
 # Greenmile                                                     #
@@ -112,7 +111,6 @@ alias bms="./gradlew clean build -PTMDB_API_KEY=eae42979f396c0f200d5d7e347efacdf
 #                               /Users/carloseduardo/greenmile/databases/gmdjs_database \
 #                               && open /Users/carloseduardo/greenmile/databases/gmdjs_database/files/default.realm"
 
-
 #################################################################
 # Renewer                                                       #
 #################################################################
@@ -122,7 +120,6 @@ alias rb_get_database="adb pull /data/data/com.carloseduardo.renewer.books/datab
 alias rb_pidcat="pidcat com.carloseduardo.renewer.books"
 
 alias rb_uninstall="adb uninstall com.carloseduardo.renewer.books"
-
 
 #################################################################
 # Virtual Box                                                   #
@@ -149,7 +146,6 @@ alias mvn_install="mvn clean install -DskipTests"
 alias mvn_package="mvn clean compile package -DskipTests"
 
 alias mvn_install_sync="mvn clean install -U -P -DskipTests"
-
 
 #################################################################
 # Source                                                        #
@@ -245,12 +241,10 @@ alias babel="babel.js"
 alias webpack="webpack.js"
 alias webpack-dev-server="webpack-dev-server.js"
 
-
 #################################################################
 # Components                                                    #
 #################################################################
 alias component_build="webpack --progress --colors && open src/html/view/index.html"
-
 
 #################################################################
 # Python                                                        #
@@ -272,5 +266,20 @@ alias pg_stop="brew services stop postgresql"
 # Network                                                       #
 #################################################################
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias dns_flush_cache="sudo killall -HUP mDNSResponder"
+alias dns_flush_cache="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
+#################################################################
+# PNPM                                                          #
+#################################################################
+alias pn="pnpm"
+
+#################################################################
+# K8                                                            #
+#################################################################
+alias k="kubectl"
+
+#################################################################
+# Run IAM Load test                                             #
+#################################################################
+alias iam_load_test="yarn build && clear && yarn test:alle-backend-service-iam-exchange-token"
+alias iam_authz_load_test="yarn build && clear && yarn test:alle-backend-service-iam-get-permissions"

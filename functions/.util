@@ -163,3 +163,7 @@ function decode_jwt() {
 function gifly() {
     ffmpeg -i "$1" -s 1400x800 -pix_fmt rgb24 -r 20 -f gif -  | gifsicle --optimize=3 --delay=3 > "$2"
 }
+
+function find_process_port() {
+  sudo lsof -nP -i4TCP:$1 | grep LISTEN
+}

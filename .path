@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Path
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/opt/homebrew/bin:/usr/local/git/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
 
 # Android
-export ANDROID_HOME="/Users/carloseduardosx/Library/Android/sdk"
+export ANDROID_HOME="${HOME}/Library/Android/sdk"
 export ANDROID_TOOLS="$ANDROID_HOME/tools"
 export ANDROID_TOOLS_BIN="$ANDROID_HOME/tools/bin"
 export ANDROID_BUILD_TOOLS="$ANDROID_HOME/build-tools/27.0.1"
@@ -16,18 +16,19 @@ path+=("$ANDROID_HOME" "$ANDROID_TOOLS" "$ANDROID_BUILD_TOOLS" "$ANDROID_TOOLS_B
 export JAVA9_HOME="/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home"
 export JAVA8_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home"
 export JAVA7_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home"
-export JAVA_HOME="$JAVA8_HOME"
+export JAVA21_HOME="/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home"
+export JAVA_HOME="$JAVA21_HOME"
 path+=("$JAVA_HOME" "$JAVA7_HOME" "$JAVA8_HOME" "$JAVA9_HOME")
 
 # Kotlin
-export KOTLIN_HOME="/Users/carloseduardosx/compiler/kotlinc/bin"
+export KOTLIN_HOME="${HOME}/compiler/kotlinc/bin"
 path+=("$KOTLIN_HOME")
 
 # Ruby
-export RVM="$HOME/.rvm/bin"
-export GEM_HOME=$HOME/.gem
-export GEM_PATH=$HOME/.gem
-path+=("$RVM")
+# export RVM="$HOME/.rvm/bin"
+# export GEM_HOME=$HOME/.gem
+# export GEM_PATH=$HOME/.gem
+# path+=("$RVM")
 
 # MySQL
 export MYSQL="/usr/local/mysql/bin"
@@ -38,7 +39,7 @@ export PSQL="/Applications/Postgres.app/Contents/Versions/9.5/bin"
 path+=("$PSQL")
 
 # Z
-export Z="/usr/local/etc/profile.d"
+export Z="/opt/homebrew/etc/profile.d"
 path+=("$Z")
 
 # Genymotion
@@ -51,8 +52,9 @@ path+=("$SCRIPTS")
 
 # GO
 export GOPATH="$HOME/Go"
-export GOROOT="/usr/local/Cellar/go/1.13.8/libexec"
-path+=($GOPATH $GOROOT)
+export GOROOT="/usr/local/go"
+path+=($GOPATH "${GOROOT}/bin" "${GOPATH}/bin")
+# path+=($GOPATH $GOROOT)
 
 # GITQL
 export DYLD_LIBRARY_PATH="$GOPATH/src/github.com/cloudson/gitql/libgit2/install/lib"
@@ -73,11 +75,11 @@ path+=($ZSH_COMPLETIONS)
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+. "/opt/homebrew/opt/nvm/nvm.sh"
 path+=($NVM_DIR)
 
 # GITHUB
-export GITHUB_TOKEN=a54b39c834d7f6c67a09bfb64d956bab9cce3da1
+# export GITHUB_TOKEN=a54b39c834d7f6c67a09bfb64d956bab9cce3da1
 
 # RUST
 export RUST_DIR="$HOME/.cargo"
@@ -93,13 +95,13 @@ export LATEX_HOME="/Library/TeX/texbin"
 path+=($LATEX_HOME)
 
 # Python
-export PYTHON3="/Users/carloseduardosx/Library/Python/3.7/bin"
+export PYTHON3="${HOME}/Library/Python/3.7/bin"
 path+=($PYTHON3)
 
 # Ngrok
-export NGROK="/Users/carloseduardosx/Documents/ngrok"
+export NGROK="${HOME}/Documents/ngrok"
 path+=($NGROK)
 
 # Flutter
-export FLUTTER="/Users/carloseduardosx/flutter/flutter/bin"
+export FLUTTER="${HOME}/flutter/flutter/bin"
 path+=($FLUTTER)

@@ -22,13 +22,24 @@ function g_dir_no_assume_unchaged() {
 }
 
 function gpull() {
-  local branch=$( git branch | sed -n 's/^\* \(.*\)/\1/p' )
+  # First remove the color codes from the git branch output and then stract the branch name
+  local branch=$(git branch | git branch | sed -e 's/\x1b\[[0-9;]*m//g' | sed -En 's/\*[[:space:]](\[[0-9]*\][[:space:]][[:space:]]?)(.*)/\2/p')
+  info "Pulling from origin $branch"
   git pull origin $branch
 }
 
 function gpush() {
-  local branch=$( git branch | sed -n 's/^\* \(.*\)/\1/p' )
+  # First remove the color codes from the git branch output and then stract the branch name
+  local branch=$(git branch | git branch | sed -e 's/\x1b\[[0-9;]*m//g' | sed -En 's/\*[[:space:]](\[[0-9]*\][[:space:]][[:space:]]?)(.*)/\2/p')
+  info "Pushing to origin $branch"
   git push --recurse-submodules=on-demand origin $branch
+}
+
+function gpushf() {
+  # First remove the color codes from the git branch output and then stract the branch name
+  local branch=$(git branch | git branch | sed -e 's/\x1b\[[0-9;]*m//g' | sed -En 's/\*[[:space:]](\[[0-9]*\][[:space:]][[:space:]]?)(.*)/\2/p')
+  info "Pushing to origin $branch"
+  git push -f origin $branch
 }
 
 function gstash() {
@@ -99,7 +110,6 @@ function gh_branches_compare() {
   info "Type the branch"
   read branch
 
-
   open https://github.com/$user/$project/compare/$branch
 }
 
@@ -110,9 +120,6 @@ function gh_branches_compare_range() {
   local first_branch
   local second_branch
 
-  info "Type the user"
-  read project
-
   info "Type the project"
   read project
 
@@ -122,8 +129,15 @@ function gh_branches_compare_range() {
   info "Type the second branch:"
   read second_branch
 
+  open https://github.com/allergan-data-labs/$project/compare/$first_branch...$second_branch
+}
 
-  open https://github.com/greenmilellc-org/$project/compare/$first_branch...$second_branch
+function gh_compare() {
+  local project_name=$(git config --local remote.origin.url | sed -n 's#.*/\([^.]*\)\.git#\1#p')
+  local branch=$(git branch | git branch | sed -e 's/\x1b\[[0-9;]*m//g' | sed -En 's/\*[[:space:]](\[[0-9]*\][[:space:]][[:space:]]?)(.*)/\2/p')
+
+  info "Comparing main with $branch"
+  open https://github.com/allergan-data-labs/$project_name/compare/main...$branch
 }
 
 function gh_commits() {
@@ -158,4 +172,24 @@ g_no_assume_unchaged() {
 
 g_list_unchaged_files() {
   git ls-files -v | grep -E "^[a-z]"
+}
+
+g_restore_file() {
+  local commit_hash=$1
+  local file_path=$2
+
+  if [[ -z $commit_hash ]]; then
+    error "You must provide a commit hash as first argument"
+    return 1
+  fi
+  if [[ -z $file_path ]]; then
+    error "You must provide a file path as second argument"
+    return 1
+  fi
+
+  g checkout ${commit_hash}^ -- ${file_path}
+}
+
+gcheckout() {
+  git fetch origin $1 && git checkout $1
 }

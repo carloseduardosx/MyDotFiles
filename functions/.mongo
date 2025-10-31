@@ -1,0 +1,5 @@
+#!/bin/bash
+
+function mongo_rename_db() {
+	mongodump --archive --db="$1" | mongorestore --archive --nsFrom="$1.*" --nsTo="$2.*"
+}
