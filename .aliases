@@ -105,8 +105,6 @@ alias ae_start="adb shell am start -n com.agendakidsdigital.app/.MainActivity"
 
 alias ae_get_data_device="adb pull /data/data/com.agendakidsdigital.app/ ~/agendaedu/databases/"
 
-alias bms="./gradlew clean build -PTMDB_API_KEY=eae42979f396c0f200d5d7e347efacdf"
-
 # alias gmdjs_copy_database="adb pull /data/data/com.greenmile.driver/files/ \
 #                               /Users/carloseduardo/greenmile/databases/gmdjs_database \
 #                               && open /Users/carloseduardo/greenmile/databases/gmdjs_database/files/default.realm"
