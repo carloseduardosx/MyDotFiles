@@ -193,3 +193,101 @@ g_restore_file() {
 gcheckout() {
   git fetch origin $1 && git checkout $1
 }
+
+# ---------------------------------------------------------
+# Git Worktree Automator
+# Usage: gwnew <branch-name> [base-branch]
+# ---------------------------------------------------------
+function gwnew() {
+  if [ -z "$1" ]; then
+    error "❌ Error: Please provide a branch name."
+    info "Usage: gwnew <new-branch-name> [base-branch]"
+    return 1
+  fi
+
+  local BRANCH_NAME=$1
+  local BASE_BRANCH=${2:-HEAD} # Default to HEAD if no base provided
+
+  # 1. Get the root of the current repository
+  local REPO_ROOT
+  REPO_ROOT=$(git rev-parse --show-toplevel)
+
+  # 2. Define the sibling directory path
+  # This puts the new folder next to your current repo, not inside it.
+  local NEW_DIR="$(dirname "$REPO_ROOT")/$BRANCH_NAME"
+
+  info "🌲 Creating worktree at: $NEW_DIR"
+
+  # 3. Create the worktree
+  # We try to checkout the branch; if it doesn't exist, we create it (-b)
+  if git rev-parse --verify "$BRANCH_NAME" >/dev/null 2>&1; then
+    git worktree add "$NEW_DIR" "$BRANCH_NAME"
+  else
+    git worktree add -b "$BRANCH_NAME" "$NEW_DIR" "$BASE_BRANCH"
+  fi
+
+  # 4. Smart Copy node_modules
+  # We use rsync if available (faster/progress bar), otherwise cp
+  if [ -d "$REPO_ROOT/node_modules" ]; then
+    info "📦 node_modules detected. Copying to new tree..."
+    if command -v rsync &>/dev/null; then
+      # The trailing slash on src/ is important for rsync
+      rsync -a --info=progress2 "$REPO_ROOT/node_modules/" "$NEW_DIR/node_modules"
+    else
+      cp -r "$REPO_ROOT/node_modules" "$NEW_DIR/"
+    fi
+    success "✅ Dependencies copied."
+  fi
+
+  # 5. Switch to the new directory
+  cd "$NEW_DIR" || return
+  success "🚀 You are now in: $NEW_DIR"
+}
+
+# ---------------------------------------------------------
+# Git Worktree Cleanup
+# Usage: gwrm <folder-name>
+# ---------------------------------------------------------
+function gwrm() {
+  if [ -z "$1" ]; then
+    error "❌ Error: Please provide the folder name to remove."
+    return 1
+  fi
+
+  local TARGET_NAME=$1
+
+  # 1. Get the Repo Root and Parent Dir
+  local REPO_ROOT
+  REPO_ROOT=$(git rev-parse --show-toplevel)
+  local PARENT_DIR
+  PARENT_DIR=$(dirname "$REPO_ROOT")
+  local TARGET_PATH="$PARENT_DIR/$TARGET_NAME"
+
+  # 2. Safety Checks
+  # Ensure we aren't trying to delete the current folder we are standing in
+  if [ "$TARGET_PATH" == "$PWD" ]; then
+    error "❌ Error: You are currently inside the folder you want to delete."
+    info "   Please cd to the main repository first."
+    return 1
+  fi
+
+  # Ensure the target actually exists
+  if [ ! -d "$TARGET_PATH" ]; then
+    error "❌ Error: Directory '$TARGET_PATH' does not exist."
+    return 1
+  fi
+
+  info "🗑️  Removing worktree at: $TARGET_PATH"
+
+  # 3. Remove the worktree
+  # This removes the entry from .git/worktrees AND deletes the folder
+  # We use --force just in case the worktree has ignored files or untracked changes
+  # that usually block deletion (remove --force if you want strictly safe mode)
+  git worktree remove "$TARGET_PATH"
+
+  # 4. Prune (Housekeeping)
+  # Cleans up any stale references in .git/worktrees
+  git worktree prune
+
+  success "✅ Worktree removed and connections pruned."
+}

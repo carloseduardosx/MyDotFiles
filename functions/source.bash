@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export FUNCTIONS=$HOME/Projects/MyDotFiles/functions
-export SECRETS=$HOME/Projects/MyDotFiles/secrets/functions
+export FUNCTIONS=$HOME/projects/MyDotFiles/functions
+export SECRETS=$HOME/projects/MyDotFiles/secrets/functions
 
 . $FUNCTIONS/.android
 . $FUNCTIONS/.git_functions
